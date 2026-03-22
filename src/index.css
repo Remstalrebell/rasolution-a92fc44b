@@ -34,6 +34,11 @@
     --input: 214 20% 88%;
     --ring: 215 80% 48%;
 
+    --hero-bg: 8 45% 18%;
+    --hero-foreground: 30 30% 92%;
+    --hero-muted: 15 20% 55%;
+    --hero-accent: 15 70% 50%;
+
     --radius: 0.5rem;
 
     /* Custom tokens */
