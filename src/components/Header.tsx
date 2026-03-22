@@ -1,0 +1,89 @@
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+
+const navLinks = [
+  { label: "Über mich", href: "#about" },
+  { label: "Leistungen", href: "#services" },
+  { label: "Warum ich", href: "#why" },
+  { label: "Kontakt", href: "#contact" },
+];
+
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleNav = (href: string) => {
+    setMobileOpen(false);
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-card/95 backdrop-blur-md shadow-sm border-b border-border"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container flex items-center justify-between h-16 md:h-18">
+        <a href="#" className="font-bold text-lg tracking-tight text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          Ralf Schmidt
+        </a>
+
+        {/* Desktop */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((l) => (
+            <button
+              key={l.href}
+              onClick={() => handleNav(l.href)}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              {l.label}
+            </button>
+          ))}
+          <Button variant="hero" size="lg" onClick={() => handleNav("#contact")}>
+            Erstgespräch vereinbaren
+          </Button>
+        </nav>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden p-2 text-foreground"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Menü"
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-card border-b border-border">
+          <nav className="container flex flex-col gap-4 py-6">
+            {navLinks.map((l) => (
+              <button
+                key={l.href}
+                onClick={() => handleNav(l.href)}
+                className="text-left text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </button>
+            ))}
+            <Button variant="hero" size="lg" onClick={() => handleNav("#contact")} className="mt-2">
+              Erstgespräch vereinbaren
+            </Button>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
