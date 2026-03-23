@@ -1,11 +1,20 @@
-import { Plus, FolderOpen, Users, TrendingUp } from "lucide-react";
+import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
 
 const stats = [
   { label: "Aktive Projekte", value: "12", icon: FolderOpen },
   { label: "Kunden", value: "48", icon: Users },
   { label: "Umsatz (MTD)", value: "€ 4.250", icon: TrendingUp },
+];
+
+const projects = [
+  { name: "Webdesign Relaunch", icon: Globe, status: "In Bearbeitung", statusColor: "bg-blue-100 text-blue-800", kunde: "Meyer GmbH", progress: 60 },
+  { name: "App-Launch", icon: Rocket, status: "Abgeschlossen", statusColor: "bg-green-100 text-green-800", kunde: "TechStart AG", progress: 100 },
+  { name: "Social-Media Kampagne", icon: Megaphone, status: "In Bearbeitung", statusColor: "bg-blue-100 text-blue-800", kunde: "BioMarkt KG", progress: 35 },
 ];
 
 const Dashboard = () => {
@@ -34,6 +43,54 @@ const Dashboard = () => {
           </Card>
         ))}
       </div>
+
+      <Card className="rounded-xl">
+        <CardHeader>
+          <CardTitle className="text-lg">Aktuelle Projekte</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Name</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Kunde</TableHead>
+                <TableHead>Fortschritt</TableHead>
+                <TableHead className="w-10" />
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {projects.map((p) => (
+                <TableRow key={p.name}>
+                  <TableCell className="font-medium">
+                    <span className="flex items-center gap-2">
+                      <p.icon className="h-4 w-4 text-muted-foreground" />
+                      {p.name}
+                    </span>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="secondary" className={p.statusColor}>
+                      {p.status}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="text-muted-foreground">{p.kunde}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      <Progress value={p.progress} className="h-2 w-24" />
+                      <span className="text-xs text-muted-foreground tabular-nums">{p.progress}%</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <Button variant="ghost" size="icon" className="h-8 w-8">
+                      <MoreHorizontal className="h-4 w-4" />
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
     </div>
   );
 };
