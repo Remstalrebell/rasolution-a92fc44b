@@ -8,6 +8,10 @@ import MarketingPage from "./pages/Marketing.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import AppLayout from "./layouts/AppLayout.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
+import Projekte from "./pages/Projekte.tsx";
+import Kunden from "./pages/Kunden.tsx";
+import Analysen from "./pages/Analysen.tsx";
+import Einstellungen from "./pages/Einstellungen.tsx";
 
 const queryClient = new QueryClient();
 
