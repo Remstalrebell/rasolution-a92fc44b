@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const stats = [
   { label: "Aktive Projekte", value: "12", icon: FolderOpen },
@@ -18,11 +23,18 @@ const projects = [
 ];
 
 const Dashboard = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleSave = () => {
+    console.log("Projekt gespeichert");
+    setOpen(false);
+  };
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <h1 className="text-balance">Dashboard</h1>
-        <Button>
+        <Button onClick={() => setOpen(true)}>
           <Plus className="h-4 w-4" />
           Neues Projekt
         </Button>
@@ -91,6 +103,40 @@ const Dashboard = () => {
           </Table>
         </CardContent>
       </Card>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Neues Projekt erstellen</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-2">
+            <div className="space-y-2">
+              <Label htmlFor="name">Projektname</Label>
+              <Input id="name" placeholder="z.B. Website Relaunch" />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="kunde">Kunde</Label>
+              <Input id="kunde" placeholder="Firmenname" />
+            </div>
+            <div className="space-y-2">
+              <Label>Status</Label>
+              <Select defaultValue="geplant">
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="geplant">Geplant</SelectItem>
+                  <SelectItem value="in-bearbeitung">In Bearbeitung</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <DialogFooter className="gap-2">
+            <Button variant="outline" onClick={() => setOpen(false)}>Abbrechen</Button>
+            <Button onClick={handleSave}>Speichern</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
