@@ -39,7 +39,7 @@ export function AppSidebar() {
           </a>
         </div>
 
-        <SidebarGroup defaultOpen>
+        <SidebarGroup>
           <SidebarGroupLabel className="text-muted-foreground text-xs uppercase tracking-wider">
             Hauptmenü
           </SidebarGroupLabel>
