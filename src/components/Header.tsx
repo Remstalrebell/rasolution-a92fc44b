@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -13,6 +14,7 @@ const navLinks = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -49,6 +51,9 @@ const Header = () => {
               {l.label}
             </button>
           ))}
+          <Button variant="outline" size="sm" onClick={() => navigate("/app")}>
+            Dashboard
+          </Button>
           <Button variant="hero" size="lg" onClick={() => handleNav("#contact")}>
             Erstgespräch vereinbaren
           </Button>
@@ -77,6 +82,9 @@ const Header = () => {
                 {l.label}
               </button>
             ))}
+            <Button variant="outline" size="sm" onClick={() => navigate("/app")}>
+              Dashboard
+            </Button>
             <Button variant="hero" size="lg" onClick={() => handleNav("#contact")} className="mt-2">
               Erstgespräch vereinbaren
             </Button>
