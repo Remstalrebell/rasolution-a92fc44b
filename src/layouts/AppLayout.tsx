@@ -6,6 +6,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSepara
 import { User, Settings, LogOut } from "lucide-react";
 
 const AppLayout = () => {
+  const navigate = useNavigate();
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
