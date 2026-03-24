@@ -51,6 +51,9 @@ const Header = () => {
               {l.label}
             </button>
           ))}
+          <Button variant="outline" size="sm" onClick={() => navigate("/app")}>
+            Dashboard
+          </Button>
           <Button variant="hero" size="lg" onClick={() => handleNav("#contact")}>
             Erstgespräch vereinbaren
           </Button>
