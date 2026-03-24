@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, MoreHorizontal } from "lucide-react";
+import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, MoreHorizontal, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 
 const stats = [
   { label: "Aktive Projekte", value: "12", icon: FolderOpen },
@@ -17,24 +19,38 @@ const stats = [
 ];
 
 const projects = [
-  { name: "Webdesign Relaunch", icon: Globe, status: "In Bearbeitung", statusColor: "bg-blue-100 text-blue-800", kunde: "Meyer GmbH", progress: 60 },
-  { name: "App-Launch", icon: Rocket, status: "Abgeschlossen", statusColor: "bg-green-100 text-green-800", kunde: "TechStart AG", progress: 100 },
-  { name: "Social-Media Kampagne", icon: Megaphone, status: "In Bearbeitung", statusColor: "bg-blue-100 text-blue-800", kunde: "BioMarkt KG", progress: 35 },
+  {
+    name: "Webdesign Relaunch", icon: Globe, status: "In Bearbeitung",
+    statusColor: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
+    kunde: "Meyer GmbH", progress: 60,
+    description: "Kompletter Relaunch der Unternehmenswebsite mit neuem Design-System und responsiver Umsetzung.",
+    activities: ["Wireframes erstellt", "Design-Review abgeschlossen", "Startseite implementiert"],
+  },
+  {
+    name: "App-Launch", icon: Rocket, status: "Abgeschlossen",
+    statusColor: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
+    kunde: "TechStart AG", progress: 100,
+    description: "Native App für iOS und Android mit Flutter-Technologie und Backend-Integration.",
+    activities: ["App Store Release", "Finale QA bestanden", "Beta-Phase abgeschlossen"],
+  },
+  {
+    name: "Social-Media Kampagne", icon: Megaphone, status: "In Bearbeitung",
+    statusColor: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
+    kunde: "BioMarkt KG", progress: 35,
+    description: "Multi-Channel Kampagne über Instagram, LinkedIn und Facebook mit Paid-Ads-Strategie.",
+    activities: ["Content-Plan erstellt", "Erste Ads geschaltet"],
+  },
 ];
 
 const Dashboard = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleSave = () => {
-    console.log("Projekt gespeichert");
-    setOpen(false);
-  };
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <h1 className="text-balance">Dashboard</h1>
-        <Button onClick={() => setOpen(true)}>
+        <Button onClick={() => setDialogOpen(true)}>
           <Plus className="h-4 w-4" />
           Neues Projekt
         </Button>
@@ -75,15 +91,16 @@ const Dashboard = () => {
               {projects.map((p) => (
                 <TableRow key={p.name}>
                   <TableCell className="font-medium">
-                    <span className="flex items-center gap-2">
+                    <button
+                      className="flex items-center gap-2 hover:text-primary transition-colors text-left"
+                      onClick={() => setSelectedProject(p)}
+                    >
                       <p.icon className="h-4 w-4 text-muted-foreground" />
                       {p.name}
-                    </span>
+                    </button>
                   </TableCell>
                   <TableCell>
-                    <Badge variant="secondary" className={p.statusColor}>
-                      {p.status}
-                    </Badge>
+                    <Badge variant="secondary" className={p.statusColor}>{p.status}</Badge>
                   </TableCell>
                   <TableCell className="text-muted-foreground">{p.kunde}</TableCell>
                   <TableCell>
@@ -104,7 +121,57 @@ const Dashboard = () => {
         </CardContent>
       </Card>
 
-      <Dialog open={open} onOpenChange={setOpen}>
+      {/* Projekt-Detail Sheet */}
+      <Sheet open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
+        <SheetContent className="sm:max-w-md">
+          {selectedProject && (
+            <>
+              <SheetHeader>
+                <SheetTitle className="flex items-center gap-2">
+                  <selectedProject.icon className="h-5 w-5 text-primary" />
+                  {selectedProject.name}
+                </SheetTitle>
+                <SheetDescription>{selectedProject.description}</SheetDescription>
+              </SheetHeader>
+
+              <div className="space-y-6 pt-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-muted-foreground">Status</span>
+                  <Badge variant="secondary" className={selectedProject.statusColor}>{selectedProject.status}</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-muted-foreground">Kunde</span>
+                  <span className="text-sm font-medium">{selectedProject.kunde}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-muted-foreground">Fortschritt</span>
+                  <div className="flex items-center gap-2">
+                    <Progress value={selectedProject.progress} className="h-2 w-24" />
+                    <span className="text-xs tabular-nums">{selectedProject.progress}%</span>
+                  </div>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="text-sm font-semibold mb-3">Letzte Aktivitäten</h3>
+                  <ul className="space-y-2">
+                    {selectedProject.activities.map((a, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Clock className="h-4 w-4 mt-0.5 shrink-0 text-primary/60" />
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </>
+          )}
+        </SheetContent>
+      </Sheet>
+
+      {/* Neues Projekt Dialog */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Neues Projekt erstellen</DialogTitle>
@@ -121,9 +188,7 @@ const Dashboard = () => {
             <div className="space-y-2">
               <Label>Status</Label>
               <Select defaultValue="geplant">
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
+                <SelectTrigger><SelectValue /></SelectTrigger>
                 <SelectContent>
                   <SelectItem value="geplant">Geplant</SelectItem>
                   <SelectItem value="in-bearbeitung">In Bearbeitung</SelectItem>
@@ -132,8 +197,8 @@ const Dashboard = () => {
             </div>
           </div>
           <DialogFooter className="gap-2">
-            <Button variant="outline" onClick={() => setOpen(false)}>Abbrechen</Button>
-            <Button onClick={handleSave}>Speichern</Button>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Abbrechen</Button>
+            <Button onClick={() => { console.log("Projekt gespeichert"); setDialogOpen(false); }}>Speichern</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
