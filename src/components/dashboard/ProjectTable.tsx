@@ -12,6 +12,8 @@ interface Project {
   statusColor: string;
   kunde: string;
   progress: number;
+  description?: string;
+  activities?: string[];
 }
 
 interface Props {
