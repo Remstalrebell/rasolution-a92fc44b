@@ -47,7 +47,7 @@ const stats = [
 
 const Dashboard = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   return (
     <div className="space-y-8">
