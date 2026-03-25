@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { User, Settings, LogOut, Sun, Moon } from "lucide-react";
+import fleetBg from "@/assets/fleet-bg.jpg";
 
 const AppLayout = () => {
   const navigate = useNavigate();
@@ -20,8 +21,14 @@ const AppLayout = () => {
       <div className="min-h-screen flex w-full">
         <AppSidebar />
 
-        <div className="flex-1 flex flex-col">
-          <header className="h-14 flex items-center justify-between border-b border-border px-4">
+        <div className="flex-1 flex flex-col relative">
+          {/* Fleet background texture */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.04] pointer-events-none z-0"
+            style={{ backgroundImage: `url(${fleetBg})` }}
+          />
+
+          <header className="h-14 flex items-center justify-between border-b border-border px-4 bg-background/80 backdrop-blur-sm relative z-10">
             <div className="flex items-center gap-4">
               <SidebarTrigger />
               <span className="text-sm font-medium text-muted-foreground">Rasolution</span>
@@ -36,7 +43,7 @@ const AppLayout = () => {
                 <DropdownMenuTrigger asChild>
                   <button className="rounded-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                     <Avatar className="h-8 w-8 cursor-pointer">
-                      <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">JD</AvatarFallback>
+                      <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">RS</AvatarFallback>
                     </Avatar>
                   </button>
                 </DropdownMenuTrigger>
@@ -56,7 +63,7 @@ const AppLayout = () => {
             </div>
           </header>
 
-          <main className="flex-1 p-6">
+          <main className="flex-1 p-6 relative z-10">
             <Outlet />
           </main>
         </div>

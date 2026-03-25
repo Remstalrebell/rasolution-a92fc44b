@@ -51,6 +51,14 @@ export default {
           DEFAULT: "hsl(var(--navy))",
           foreground: "hsl(var(--navy-foreground))",
         },
+        bronze: {
+          DEFAULT: "hsl(var(--bronze))",
+          foreground: "hsl(var(--bronze-foreground))",
+        },
+        bordeaux: {
+          DEFAULT: "hsl(var(--bordeaux))",
+          foreground: "hsl(var(--bordeaux-foreground))",
+        },
         slate_dark: "hsl(var(--slate-dark))",
         slate_light: "hsl(var(--slate-light))",
         sidebar: {
