@@ -1,4 +1,4 @@
-import { LayoutDashboard, BarChart3, Settings, Users, FileText } from "lucide-react";
+import { LayoutDashboard, BarChart3, Settings, Users, FileText, Truck } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -27,19 +27,19 @@ const items = [
 export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
-  const location = useLocation();
 
   return (
     <Sidebar collapsible="icon" className="border-r border-border">
-      <SidebarContent className="pt-4">
-        <div className="px-4 pb-4">
+      <SidebarContent className="pt-5">
+        <div className="px-5 pb-5 flex items-center gap-2">
+          <Truck className="h-5 w-5 text-primary shrink-0" />
           <a href="/" className="font-bold text-lg tracking-tight text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-            {collapsed ? "RS" : "Rasolution"}
+            {collapsed ? "" : "Rasolution"}
           </a>
         </div>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-muted-foreground text-xs uppercase tracking-wider">
+          <SidebarGroupLabel className="text-muted-foreground text-[11px] uppercase tracking-widest px-5">
             Hauptmenü
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -50,8 +50,8 @@ export function AppSidebar() {
                     <NavLink
                       to={item.url}
                       end
-                      className="gap-3 hover:bg-muted/50"
-                      activeClassName="bg-primary/10 text-primary font-medium"
+                      className="gap-3 hover:bg-muted/60 rounded-lg mx-2 px-3 py-2.5"
+                      activeClassName="bg-primary/10 text-primary font-semibold"
                     >
                       <item.icon className="h-4 w-4 shrink-0" />
                       {!collapsed && <span>{item.title}</span>}
@@ -64,16 +64,16 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      {/* Partner footer */}
-      <SidebarFooter className="border-t border-border p-4">
-        <div className={`flex items-center ${collapsed ? "justify-center" : "gap-3"}`}>
-          <Avatar className="h-9 w-9 shrink-0 border-2 border-primary/20">
-            <AvatarFallback className="bg-primary/10 text-primary text-xs font-bold">RS</AvatarFallback>
+      {/* Partner section */}
+      <SidebarFooter className="border-t border-border p-5">
+        <div className={`flex ${collapsed ? "justify-center" : "items-center gap-4"}`}>
+          <Avatar className="h-12 w-12 shrink-0 border-2 border-primary/30 shadow-md">
+            <AvatarFallback className="bg-primary/10 text-primary text-base font-bold">RS</AvatarFallback>
           </Avatar>
           {!collapsed && (
             <div className="flex flex-col min-w-0">
-              <span className="text-[10px] uppercase tracking-widest text-muted-foreground leading-tight">Dein Flotten-Partner</span>
-              <span className="text-sm font-semibold text-foreground truncate">Ralf Schmidt</span>
+              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground leading-tight">Ihr Fuhrpark-Experte</span>
+              <span className="text-sm font-bold text-foreground truncate mt-0.5">Ralf Schmidt</span>
             </div>
           )}
         </div>

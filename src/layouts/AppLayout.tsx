@@ -22,28 +22,30 @@ const AppLayout = () => {
         <AppSidebar />
 
         <div className="flex-1 flex flex-col relative">
-          {/* Fleet background texture */}
+          {/* Fleet background texture — visible but subtle */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.04] pointer-events-none z-0"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-0 opacity-[0.08] dark:opacity-[0.05]"
             style={{ backgroundImage: `url(${fleetBg})` }}
           />
+          {/* Soft overlay to tint the image */}
+          <div className="absolute inset-0 bg-background/70 pointer-events-none z-0" />
 
-          <header className="h-14 flex items-center justify-between border-b border-border px-4 bg-background/80 backdrop-blur-sm relative z-10">
+          <header className="h-16 flex items-center justify-between border-b border-border px-6 bg-background/80 backdrop-blur-sm relative z-10">
             <div className="flex items-center gap-4">
               <SidebarTrigger />
-              <span className="text-sm font-medium text-muted-foreground">Rasolution</span>
+              <span className="text-sm font-semibold tracking-wide text-foreground/70">Rasolution</span>
             </div>
 
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setDark(!dark)}>
+            <div className="flex items-center gap-3">
+              <Button variant="ghost" size="icon" className="h-9 w-9" onClick={() => setDark(!dark)}>
                 {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="rounded-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                    <Avatar className="h-8 w-8 cursor-pointer">
-                      <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">RS</AvatarFallback>
+                    <Avatar className="h-9 w-9 cursor-pointer border-2 border-primary/20">
+                      <AvatarFallback className="bg-primary/10 text-primary text-xs font-bold">RS</AvatarFallback>
                     </Avatar>
                   </button>
                 </DropdownMenuTrigger>
@@ -63,7 +65,7 @@ const AppLayout = () => {
             </div>
           </header>
 
-          <main className="flex-1 p-6 relative z-10">
+          <main className="flex-1 p-8 lg:p-10 relative z-10">
             <Outlet />
           </main>
         </div>
