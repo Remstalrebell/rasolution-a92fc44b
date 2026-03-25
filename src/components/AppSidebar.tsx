@@ -1,6 +1,7 @@
 import { LayoutDashboard, BarChart3, Settings, Users, FileText } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 import {
   Sidebar,
@@ -11,6 +12,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarFooter,
   useSidebar,
 } from "@/components/ui/sidebar";
 
@@ -26,15 +28,12 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const location = useLocation();
-  const currentPath = location.pathname;
-
-  const isActive = (path: string) => currentPath === path;
 
   return (
     <Sidebar collapsible="icon" className="border-r border-border">
       <SidebarContent className="pt-4">
         <div className="px-4 pb-4">
-          <a href="/" className="font-bold text-lg tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <a href="/" className="font-bold text-lg tracking-tight text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             {collapsed ? "RS" : "Rasolution"}
           </a>
         </div>
@@ -64,6 +63,21 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+
+      {/* Partner footer */}
+      <SidebarFooter className="border-t border-border p-4">
+        <div className={`flex items-center ${collapsed ? "justify-center" : "gap-3"}`}>
+          <Avatar className="h-9 w-9 shrink-0 border-2 border-primary/20">
+            <AvatarFallback className="bg-primary/10 text-primary text-xs font-bold">RS</AvatarFallback>
+          </Avatar>
+          {!collapsed && (
+            <div className="flex flex-col min-w-0">
+              <span className="text-[10px] uppercase tracking-widest text-muted-foreground leading-tight">Dein Flotten-Partner</span>
+              <span className="text-sm font-semibold text-foreground truncate">Ralf Schmidt</span>
+            </div>
+          )}
+        </div>
+      </SidebarFooter>
     </Sidebar>
   );
 }
