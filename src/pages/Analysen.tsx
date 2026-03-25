@@ -17,21 +17,21 @@ const months = [
 ];
 
 const Analysen = () => (
-  <div className="space-y-8">
+  <div className="space-y-10">
     <h1 className="text-balance">Analysen</h1>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {kpis.map((k) => (
-        <Card key={k.label} className="rounded-xl">
-          <CardContent className="p-6 flex items-center gap-4">
-            <div className="rounded-lg bg-primary/10 p-3">
-              <k.icon className="h-5 w-5 text-primary" />
+        <Card key={k.label} className="rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <CardContent className="p-7 flex items-center gap-5">
+            <div className="rounded-xl bg-primary/8 p-4">
+              <k.icon className="h-6 w-6 text-primary" />
             </div>
             <div className="flex-1">
-              <p className="text-sm text-muted-foreground">{k.label}</p>
-              <p className="text-2xl font-bold tracking-tight">{k.value}</p>
+              <p className="text-sm text-muted-foreground mb-1">{k.label}</p>
+              <p className="text-3xl font-extrabold tracking-tight text-bronze-gradient">{k.value}</p>
             </div>
-            <span className={`text-xs font-medium flex items-center gap-1 ${k.up ? "text-green-600" : "text-destructive"}`}>
+            <span className={`text-xs font-semibold flex items-center gap-1 px-2 py-1 rounded-full ${k.up ? "text-emerald-700 bg-emerald-50 dark:text-emerald-400 dark:bg-emerald-900/30" : "text-destructive bg-red-50 dark:bg-red-900/30"}`}>
               {k.up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
               {k.change}
             </span>
@@ -40,20 +40,20 @@ const Analysen = () => (
       ))}
     </div>
 
-    <Card className="rounded-xl">
-      <CardHeader>
+    <Card className="rounded-xl shadow-sm">
+      <CardHeader className="pb-2">
         <CardTitle className="text-lg">Umsatzentwicklung (Letzte 6 Monate)</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="flex items-end justify-between gap-3 h-52">
+        <div className="flex items-end justify-between gap-4 h-56 pt-4">
           {months.map((m) => (
             <div key={m.label} className="flex-1 flex flex-col items-center gap-2">
-              <span className="text-xs font-medium text-muted-foreground">{m.value}%</span>
+              <span className="text-xs font-semibold text-muted-foreground">{m.value}%</span>
               <div
-                className="w-full rounded-t-md bg-primary/80 transition-all"
+                className="w-full rounded-t-lg bg-gradient-to-t from-primary to-primary/60 transition-all hover:from-primary hover:to-accent/70"
                 style={{ height: `${m.value * 2}px` }}
               />
-              <span className="text-xs text-muted-foreground">{m.label}</span>
+              <span className="text-xs font-medium text-muted-foreground">{m.label}</span>
             </div>
           ))}
         </div>
