@@ -53,14 +53,14 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((s) => (
-          <Card key={s.label} className="rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <Card key={s.label} className={`rounded-xl shadow-sm hover:shadow-md transition-shadow ${(s as any).green ? 'border-amber-200/50' : ''}`}>
             <CardContent className="p-7 flex items-center gap-5">
               <div className={`rounded-xl p-4 ${(s as any).green ? 'bg-green-500/10' : 'bg-primary/8'}`}>
-                <s.icon className={`h-6 w-6 ${(s as any).green ? 'text-green-600' : 'text-primary'}`} />
+                <s.icon className={`h-6 w-6 drop-shadow-sm ${(s as any).green ? 'text-green-600' : 'text-amber-600'}`} />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground mb-1">{s.label}</p>
-                <p className="text-3xl font-extrabold tracking-tight text-bronze-gradient">{s.value}</p>
+                <p className="text-3xl font-extrabold tracking-tight bg-gradient-to-b from-amber-400 to-amber-700 bg-clip-text text-transparent">{s.value}</p>
               </div>
             </CardContent>
           </Card>
