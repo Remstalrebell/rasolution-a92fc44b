@@ -68,7 +68,7 @@ export function AppSidebar() {
       {/* Partner section */}
       <SidebarFooter className="border-t border-border p-5">
         <div className={`flex ${collapsed ? "justify-center" : "items-center gap-4"}`}>
-          <Avatar className="h-14 w-14 shrink-0 border-2 border-primary/30 shadow-lg shadow-primary/20 ring-2 ring-primary/10">
+          <Avatar className="h-14 w-14 shrink-0 border-2 border-amber-500/40 shadow-lg shadow-amber-500/20 ring-2 ring-amber-500/50">
             <AvatarImage src={ralfImg} alt="Ralf Schmidt" className="object-cover" />
             <AvatarFallback className="bg-primary/10 text-primary text-lg font-bold">RS</AvatarFallback>
           </Avatar>
