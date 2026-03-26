@@ -34,6 +34,7 @@ const stats = [
   { label: "Aktive Projekte", value: "12", icon: FolderOpen },
   { label: "Kunden", value: "48", icon: Users },
   { label: "Umsatz (MTD)", value: "€ 4.250", icon: TrendingUp },
+  { label: "CO2-Ersparnis (BEV)", value: "42.5 t", icon: Leaf, green: true },
 ];
 
 const Dashboard = () => {
