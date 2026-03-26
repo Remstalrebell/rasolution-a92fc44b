@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone } from "lucide-react";
+import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectTable from "@/components/dashboard/ProjectTable";
