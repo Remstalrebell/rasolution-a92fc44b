@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { User, Settings, LogOut, Sun, Moon } from "lucide-react";
-import fleetBg from "@/assets/fleet-bg.jpg";
+
 
 const AppLayout = () => {
   const navigate = useNavigate();
