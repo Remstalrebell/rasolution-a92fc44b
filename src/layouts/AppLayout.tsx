@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { User, Settings, LogOut, Sun, Moon } from "lucide-react";
-import fleetBg from "@/assets/fleet-bg.jpg";
+
 
 const AppLayout = () => {
   const navigate = useNavigate();
@@ -24,8 +24,8 @@ const AppLayout = () => {
         <div className="flex-1 flex flex-col relative">
           {/* Fleet background texture — visible but subtle */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none z-0 opacity-[0.15] dark:opacity-[0.08]"
-            style={{ backgroundImage: `url(${fleetBg})` }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none z-0 opacity-10 dark:opacity-[0.06]"
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1731348594245-65d9828da87a?w=1200&auto=format&fit=crop&q=80')" }}
           />
           {/* Soft overlay to tint the image */}
           <div className="absolute inset-0 bg-background/60 pointer-events-none z-0" />

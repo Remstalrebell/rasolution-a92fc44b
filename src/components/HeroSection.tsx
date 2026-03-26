@@ -7,11 +7,13 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{
-        backgroundImage: "linear-gradient(hsl(15 40% 50%) 1px, transparent 1px), linear-gradient(90deg, hsl(15 40% 50%) 1px, transparent 1px)",
-        backgroundSize: "64px 64px"
-      }} />
+      {/* BEV charging station background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-20"
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/5982900/pexels-photo-5982900.jpeg')" }}
+      />
+      {/* Dark overlay for text contrast */}
+      <div className="absolute inset-0 bg-[hsl(var(--hero-bg))]/70" />
 
       <div className="container relative z-10 py-24 md:py-32 lg:py-40" ref={ref}>
         <div className="max-w-3xl animate-reveal">
