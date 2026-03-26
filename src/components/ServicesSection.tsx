@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { TrendingUp, Monitor, Headphones } from "lucide-react";
+import { TrendingUp, Monitor, Headphones, Leaf } from "lucide-react";
 
 const services = [
   {
@@ -39,7 +39,7 @@ const ServicesSection = () => {
           {services.map((s, i) => (
             <div
               key={s.title}
-              className={`bg-card rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 animate-reveal`}
+              className="bg-card rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 animate-reveal"
               style={{ animationDelay: `${160 + i * 100}ms` }}
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
@@ -51,6 +51,19 @@ const ServicesSection = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* BEV-Versprechen */}
+        <div className="mt-20 max-w-3xl mx-auto bg-card rounded-xl p-10 shadow-sm border border-amber-200/50 animate-reveal delay-300">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+              <Leaf className="text-green-600" size={20} />
+            </div>
+            <h3 className="text-foreground">Nachhaltige Flottensteuerung: Mein BEV-Versprechen</h3>
+          </div>
+          <p className="text-muted-foreground leading-relaxed text-lg" style={{ textWrap: "pretty" }}>
+            Die Zukunft der Mobilität ist elektrisch. Ich begleite Sie bei der strategischen Umstellung Ihres Fuhrparks auf Battery Electric Vehicles (BEVs). Von der Ladeinfrastruktur bis zur TCO-Analyse – ich mache Ihre Flotte fit für die E-Mobilität.
+          </p>
         </div>
       </div>
     </section>
