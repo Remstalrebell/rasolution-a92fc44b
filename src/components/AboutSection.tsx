@@ -6,8 +6,14 @@ const AboutSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-background">
-      <div className="container" ref={ref}>
+    <section id="about" className="relative py-24 md:py-32 bg-background overflow-hidden">
+      {/* Fleet background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/4204153/pexels-photo-4204153.jpeg')" }}
+      />
+      <div className="absolute inset-0 bg-background/80" />
+      <div className="container relative z-10" ref={ref}>
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
           <div className="shrink-0 animate-reveal">
             <Avatar className="h-40 w-40 border-2 border-amber-500/40 shadow-lg shadow-amber-500/20 ring-2 ring-amber-500/50">
