@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone } from "lucide-react";
+import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectTable from "@/components/dashboard/ProjectTable";
@@ -34,6 +34,7 @@ const stats = [
   { label: "Aktive Projekte", value: "12", icon: FolderOpen },
   { label: "Kunden", value: "48", icon: Users },
   { label: "Umsatz (MTD)", value: "€ 4.250", icon: TrendingUp },
+  { label: "CO2-Ersparnis (BEV)", value: "42.5 t", icon: Leaf, green: true },
 ];
 
 const Dashboard = () => {
@@ -50,12 +51,12 @@ const Dashboard = () => {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((s) => (
           <Card key={s.label} className="rounded-xl shadow-sm hover:shadow-md transition-shadow">
             <CardContent className="p-7 flex items-center gap-5">
-              <div className="rounded-xl bg-primary/8 p-4">
-                <s.icon className="h-6 w-6 text-primary" />
+              <div className={`rounded-xl p-4 ${(s as any).green ? 'bg-green-500/10' : 'bg-primary/8'}`}>
+                <s.icon className={`h-6 w-6 ${(s as any).green ? 'text-green-600' : 'text-primary'}`} />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground mb-1">{s.label}</p>

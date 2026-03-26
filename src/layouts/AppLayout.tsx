@@ -24,11 +24,11 @@ const AppLayout = () => {
         <div className="flex-1 flex flex-col relative">
           {/* Fleet background texture — visible but subtle */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-0 opacity-[0.08] dark:opacity-[0.05]"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none z-0 opacity-[0.15] dark:opacity-[0.08]"
             style={{ backgroundImage: `url(${fleetBg})` }}
           />
           {/* Soft overlay to tint the image */}
-          <div className="absolute inset-0 bg-background/70 pointer-events-none z-0" />
+          <div className="absolute inset-0 bg-background/60 pointer-events-none z-0" />
 
           <header className="h-16 flex items-center justify-between border-b border-border px-6 bg-background/80 backdrop-blur-sm relative z-10">
             <div className="flex items-center gap-4">
