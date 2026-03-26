@@ -1,7 +1,8 @@
 import { LayoutDashboard, BarChart3, Settings, Users, FileText, Truck } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ralfImg from "@/assets/ralf-schmidt.jpg";
 
 import {
   Sidebar,
