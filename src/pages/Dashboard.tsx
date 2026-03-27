@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import ProjectTable from "@/components/dashboard/ProjectTable";
 import NewProjectDialog from "@/components/dashboard/NewProjectDialog";
 import ProjectDetailSheet from "@/components/dashboard/ProjectDetailSheet";
+import { useToast } from "@/hooks/use-toast";
+import ProjectDetailSheet from "@/components/dashboard/ProjectDetailSheet";
 
 export const projects = [
   {
