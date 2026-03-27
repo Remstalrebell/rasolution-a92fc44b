@@ -42,6 +42,7 @@ const stats = [
 const Dashboard = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const { toast } = useToast();
 
   return (
     <div className="space-y-10">
