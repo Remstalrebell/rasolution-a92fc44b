@@ -31,12 +31,12 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-card/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-transparent"
+          ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-border"
+          : "bg-white/60 backdrop-blur-sm"
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-18">
-        <a href="#" className="font-bold text-lg tracking-tight text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <a href="#" className="font-bold text-lg tracking-tight text-slate-900" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           Ralf Schmidt
         </a>
 
@@ -46,7 +46,7 @@ const Header = () => {
             <button
               key={l.href}
               onClick={() => handleNav(l.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200"
             >
               {l.label}
             </button>
