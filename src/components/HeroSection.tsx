@@ -10,7 +10,7 @@ const HeroSection = () => {
       {/* BEV charging station background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-20"
-        style={{ backgroundImage: "url('https://images.pexels.com/photos/5982900/pexels-photo-5982900.jpeg')" }}
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/3864110/pexels-photo-3864110.jpeg')" }}
       />
       {/* Dark overlay for text contrast */}
       <div className="absolute inset-0 bg-[hsl(var(--hero-bg))]/70" />

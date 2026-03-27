@@ -26,8 +26,13 @@ const ServicesSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-secondary/50">
-      <div className="container" ref={ref}>
+    <section id="services" className="relative py-24 md:py-32 bg-secondary/50 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-10"
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/5982900/pexels-photo-5982900.jpeg')" }}
+      />
+      <div className="absolute inset-0 bg-secondary/80" />
+      <div className="container relative z-10" ref={ref}>
         <h2 className="text-center text-foreground text-balance animate-reveal">
           Leistungen
         </h2>
