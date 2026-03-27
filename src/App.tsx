@@ -12,6 +12,7 @@ import Projekte from "./pages/Projekte.tsx";
 import Kunden from "./pages/Kunden.tsx";
 import Analysen from "./pages/Analysen.tsx";
 import Einstellungen from "./pages/Einstellungen.tsx";
+import MarketingInternal from "./pages/MarketingInternal.tsx";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="kunden" element={<Kunden />} />
             <Route path="analysen" element={<Analysen />} />
             <Route path="einstellungen" element={<Einstellungen />} />
+            <Route path="marketing-internal" element={<MarketingInternal />} />
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
