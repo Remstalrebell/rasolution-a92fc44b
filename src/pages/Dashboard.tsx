@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, Leaf } from "lucide-react";
+import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, Leaf, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectTable from "@/components/dashboard/ProjectTable";
 import NewProjectDialog from "@/components/dashboard/NewProjectDialog";
 import ProjectDetailSheet from "@/components/dashboard/ProjectDetailSheet";
+import { useToast } from "@/hooks/use-toast";
 
 export const projects = [
   {
@@ -40,15 +41,24 @@ const stats = [
 const Dashboard = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const { toast } = useToast();
 
   return (
     <div className="space-y-10">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-3">
         <h1 className="text-balance">Dashboard</h1>
-        <Button onClick={() => setDialogOpen(true)} size="lg">
-          <Plus className="h-4 w-4" />
-          Neues Projekt
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button variant="outline" onClick={() => {
+            toast({ title: "PDF-Export", description: "Der Bericht wird generiert… (Demo)" });
+          }}>
+            <FileDown className="h-4 w-4" />
+            Bericht als PDF exportieren
+          </Button>
+          <Button onClick={() => setDialogOpen(true)} size="lg">
+            <Plus className="h-4 w-4" />
+            Neues Projekt
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

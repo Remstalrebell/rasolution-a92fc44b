@@ -13,6 +13,10 @@ import Kunden from "./pages/Kunden.tsx";
 import Analysen from "./pages/Analysen.tsx";
 import Einstellungen from "./pages/Einstellungen.tsx";
 import MarketingInternal from "./pages/MarketingInternal.tsx";
+import Impressum from "./pages/Impressum.tsx";
+import Datenschutz from "./pages/Datenschutz.tsx";
+import Login from "./pages/Login.tsx";
+import AuthGuard from "./components/AuthGuard.tsx";
 
 const queryClient = new QueryClient();
 
@@ -25,9 +29,12 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/marketing" element={<MarketingPage />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/login" element={<Login />} />
 
-          {/* App Shell mit Sidebar */}
-          <Route path="/app" element={<AppLayout />}>
+          {/* App Shell mit Sidebar – geschützt */}
+          <Route path="/app" element={<AuthGuard><AppLayout /></AuthGuard>}>
             <Route index element={<Dashboard />} />
             <Route path="projekte" element={<Projekte />} />
             <Route path="kunden" element={<Kunden />} />
@@ -36,7 +43,6 @@ const App = () => (
             <Route path="marketing-internal" element={<MarketingInternal />} />
           </Route>
 
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
