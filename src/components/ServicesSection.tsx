@@ -32,7 +32,7 @@ const ServicesSection = () => {
         style={{ backgroundImage: "url('https://images.pexels.com/photos/5982900/pexels-photo-5982900.jpeg')" }}
       />
       <div className="absolute inset-0 bg-secondary/80" />
-      <div className="container" ref={ref}>
+      <div className="container relative z-10" ref={ref}>
         <h2 className="text-center text-foreground text-balance animate-reveal">
           Leistungen
         </h2>
