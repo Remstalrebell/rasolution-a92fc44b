@@ -36,7 +36,7 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-18">
-        <a href="#" className="font-bold text-lg tracking-tight text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <a href="#" className="font-bold text-lg tracking-tight text-slate-900" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           Ralf Schmidt
         </a>
 
