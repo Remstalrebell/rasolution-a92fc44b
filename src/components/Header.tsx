@@ -46,7 +46,7 @@ const Header = () => {
             <button
               key={l.href}
               onClick={() => handleNav(l.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200"
             >
               {l.label}
             </button>
