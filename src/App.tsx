@@ -12,6 +12,7 @@ import Projekte from "./pages/Projekte.tsx";
 import Kunden from "./pages/Kunden.tsx";
 import Analysen from "./pages/Analysen.tsx";
 import Einstellungen from "./pages/Einstellungen.tsx";
+import MarketingInternal from "./pages/MarketingInternal.tsx";
 
 const queryClient = new QueryClient();
 
