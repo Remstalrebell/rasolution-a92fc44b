@@ -43,12 +43,20 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-10">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-3">
         <h1 className="text-balance">Dashboard</h1>
-        <Button onClick={() => setDialogOpen(true)} size="lg">
-          <Plus className="h-4 w-4" />
-          Neues Projekt
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button variant="outline" onClick={() => {
+            toast({ title: "PDF-Export", description: "Der Bericht wird generiert… (Demo)" });
+          }}>
+            <FileDown className="h-4 w-4" />
+            Bericht als PDF exportieren
+          </Button>
+          <Button onClick={() => setDialogOpen(true)} size="lg">
+            <Plus className="h-4 w-4" />
+            Neues Projekt
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
