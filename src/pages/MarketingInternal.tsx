@@ -29,6 +29,8 @@ const MarketingInternal = () => {
     linktree: "https://linktr.ee/rasolution",
     instagram: "https://instagram.com/rasolution",
     youtube: "https://youtube.com/@rasolution",
+    facebook: "https://facebook.com/rasolution",
+    pinterest: "https://pinterest.com/rasolution",
   });
 
   const handleSave = (channel: string) => {
