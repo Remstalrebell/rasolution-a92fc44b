@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, Leaf, FileDown } from "lucide-react";
+import { Plus, FolderOpen, Users, TrendingUp, Globe, Rocket, Megaphone, Leaf, FileDown, Upload, Wifi } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import ProjectTable from "@/components/dashboard/ProjectTable";
 import NewProjectDialog from "@/components/dashboard/NewProjectDialog";
 import ProjectDetailSheet from "@/components/dashboard/ProjectDetailSheet";
@@ -36,6 +37,13 @@ const stats = [
   { label: "Kunden", value: "48", icon: Users },
   { label: "Umsatz (MTD)", value: "€ 4.250", icon: TrendingUp },
   { label: "CO2-Ersparnis (BEV)", value: "42.5 t", icon: Leaf, green: true },
+];
+
+const connectors = [
+  { name: "Holman", status: "bereit" },
+  { name: "SAP", status: "bereit" },
+  { name: "Geotab", status: "bereit" },
+  { name: "Arval", status: "bereit" },
 ];
 
 const Dashboard = () => {
@@ -76,6 +84,34 @@ const Dashboard = () => {
           </Card>
         ))}
       </div>
+
+      {/* Konnektivität & Schnittstellen */}
+      <Card className="rounded-xl">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-3 text-lg">
+            <Wifi className="h-5 w-5 text-amber-600" />
+            Konnektivität & Schnittstellen
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap items-center gap-6 mb-6">
+            {connectors.map((c) => (
+              <div key={c.name} className="flex items-center gap-3 rounded-lg border border-border bg-muted/30 px-5 py-3">
+                <span className="font-semibold text-foreground">{c.name}</span>
+                <Badge variant="default" className="bg-green-600 hover:bg-green-600 text-white gap-1 text-xs">
+                  Bereit für API-Synchronisation
+                </Badge>
+              </div>
+            ))}
+          </div>
+          <Button variant="outline" onClick={() => {
+            toast({ title: "Import-Modul", description: "System bereit für Import (.csv/.xlsx)" });
+          }}>
+            <Upload className="h-4 w-4" />
+            Manueller Daten-Import (.csv/.xlsx)
+          </Button>
+        </CardContent>
+      </Card>
 
       <ProjectTable projects={projects} onSelectProject={setSelectedProject} />
       <ProjectDetailSheet project={selectedProject} onClose={() => setSelectedProject(null)} />

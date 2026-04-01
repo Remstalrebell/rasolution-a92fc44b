@@ -15,8 +15,8 @@ const HeroSection = () => {
       {/* Dark overlay for text contrast */}
       <div className="absolute inset-0 bg-[hsl(var(--hero-bg))]/70" />
 
-      <div className="container relative z-10 py-24 md:py-32 lg:py-40" ref={ref}>
-        <div className="max-w-3xl animate-reveal">
+      <div className="container relative z-10 py-24 md:py-32 lg:py-40 flex justify-end" ref={ref}>
+        <div className="max-w-3xl text-right animate-reveal">
           <p className="text-sm font-semibold uppercase tracking-widest mb-6 delay-100 animate-reveal" style={{ color: "hsl(var(--hero-accent))" }}>
             Fuhrparkmanagement
           </p>
@@ -25,7 +25,7 @@ const HeroSection = () => {
             <span style={{ color: "hsl(var(--hero-accent))" }}>Kosten senken.</span>{" "}
             Effizienz steigern.
           </h1>
-          <p className="mt-6 text-lg md:text-xl max-w-2xl leading-relaxed delay-300 animate-reveal" style={{ color: "hsl(var(--hero-muted))", textWrap: "pretty" }}>
+          <p className="mt-6 text-lg md:text-xl max-w-2xl leading-relaxed delay-300 animate-reveal ml-auto" style={{ color: "hsl(var(--hero-muted))", textWrap: "pretty" }}>
             Strategische Beratung und digitale Umsetzung für Unternehmen mit großen Flotten – basierend auf jahrzehntelanger Praxiserfahrung.
           </p>
           <div className="mt-10 delay-400 animate-reveal">
