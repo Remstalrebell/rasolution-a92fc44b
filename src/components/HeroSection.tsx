@@ -17,10 +17,13 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Glass mask – right 38%, masks industrial elements */}
+      {/* Diagonal wedge mask – broader at bottom, narrow at top */}
       <div
-        className="absolute top-0 right-0 bottom-0 w-[38%] backdrop-blur-xl"
-        style={{ backgroundColor: "hsl(var(--hero-bg) / 0.45)" }}
+        className="absolute inset-0 backdrop-blur-xl"
+        style={{
+          clipPath: "polygon(67% 0%, 100% 0%, 100% 100%, 33% 100%)",
+          background: "linear-gradient(to bottom right, hsl(var(--hero-bg) / 0.2), hsl(var(--hero-bg) / 0.6))",
+        }}
       />
 
       {/* Text block inside the glass zone */}
