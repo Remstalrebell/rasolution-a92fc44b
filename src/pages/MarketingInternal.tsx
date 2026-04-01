@@ -11,6 +11,8 @@ const affiliateChannels = [
   { key: "linktree", label: "Linktree", icon: Link2, placeholder: "https://linktr.ee/..." },
   { key: "instagram", label: "Instagram", icon: Instagram, placeholder: "https://instagram.com/..." },
   { key: "youtube", label: "YouTube", icon: Youtube, placeholder: "https://youtube.com/@..." },
+  { key: "facebook", label: "Facebook", icon: Link2, placeholder: "https://facebook.com/..." },
+  { key: "pinterest", label: "Pinterest", icon: Link2, placeholder: "https://pinterest.com/..." },
 ];
 
 const partners = [
