@@ -19,19 +19,19 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Single seamless blur wedge – no stacked layers */}
+      {/* Single seamless blur wedge */}
       <div
         className="absolute inset-0 backdrop-blur-xl"
         style={{
-          clipPath: "polygon(67% 0%, 100% 0%, 100% 100%, 100% 100%)",
-          background: "linear-gradient(135deg, hsl(var(--hero-bg) / 0.1), hsl(var(--hero-bg) / 0.45))",
-          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 12%, rgba(0,0,0,0.45) 32%, rgba(0,0,0,0.78) 58%, #000 100%)",
-          maskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 12%, rgba(0,0,0,0.45) 32%, rgba(0,0,0,0.78) 58%, #000 100%)",
+          clipPath: "polygon(55% 0%, 100% 0%, 100% 100%, 85% 100%)",
+          background: "linear-gradient(135deg, hsl(var(--hero-bg) / 0.05), hsl(var(--hero-bg) / 0.4))",
+          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 10%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.7) 55%, #000 85%)",
+          maskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 10%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.7) 55%, #000 85%)",
         }}
       />
 
-      {/* Text block – top-right */}
-      <div className="relative z-10 flex justify-end pt-[17vh] px-6 lg:px-12" ref={ref}>
+      {/* Text block – top-right, high positioning */}
+      <div className="relative z-10 flex justify-end pt-[12vh] px-6 lg:px-12" ref={ref}>
         <div
           className="text-right leading-tight cursor-pointer animate-reveal"
           onMouseEnter={() => setShowButton(true)}
