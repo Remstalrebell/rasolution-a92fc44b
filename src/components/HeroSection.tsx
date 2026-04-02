@@ -8,8 +8,8 @@ const HeroSection = () => {
   const [showButton, setShowButton] = useState(false);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
-      {/* Background image – boosted saturation for golden sun glow */}
+    <section className="relative min-h-[90vh] overflow-hidden" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
+      {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
@@ -19,47 +19,26 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Diagonal wedge mask – seamless gradient blur via mask-image */}
+      {/* Single seamless blur wedge – no stacked layers */}
       <div
         className="absolute inset-0 backdrop-blur-xl"
         style={{
           clipPath: "polygon(67% 0%, 100% 0%, 100% 100%, 100% 100%)",
-          background: "linear-gradient(to bottom right, hsl(var(--hero-bg) / 0.1), hsl(var(--hero-bg) / 0.5))",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 100%)",
-          maskImage: "linear-gradient(to right, transparent 0%, black 100%)",
+          background: "linear-gradient(135deg, hsl(var(--hero-bg) / 0.1), hsl(var(--hero-bg) / 0.45))",
+          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 12%, rgba(0,0,0,0.45) 32%, rgba(0,0,0,0.78) 58%, #000 100%)",
+          maskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 12%, rgba(0,0,0,0.45) 32%, rgba(0,0,0,0.78) 58%, #000 100%)",
         }}
       />
 
-      {/* Soft gradient transition zone – feathered edge, no hard lines */}
-      <div
-        className="absolute inset-0 backdrop-blur-md"
-        style={{
-          clipPath: "polygon(55% 0%, 67% 0%, 100% 100%, 85% 100%)",
-          background: "linear-gradient(to right, transparent, hsl(var(--hero-bg) / 0.15))",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 100%)",
-          maskImage: "linear-gradient(to right, transparent 0%, black 100%)",
-        }}
-      />
-
-      {/* Light blur feather – outermost transition */}
-      <div
-        className="absolute inset-0 backdrop-blur-sm"
-        style={{
-          clipPath: "polygon(48% 0%, 55% 0%, 85% 100%, 70% 100%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 100%)",
-          maskImage: "linear-gradient(to right, transparent 0%, black 100%)",
-        }}
-      />
-
-      {/* Text block – top-right positioning at ~18% from top */}
-      <div className="absolute inset-0 z-10 flex justify-end items-start pt-[18vh]" ref={ref}>
+      {/* Text block – top-right */}
+      <div className="relative z-10 flex justify-end pt-[17vh] px-6 lg:px-12" ref={ref}>
         <div
-          className="w-[42%] px-8 lg:px-12 text-right flex flex-col animate-reveal cursor-pointer"
+          className="text-right leading-tight cursor-pointer animate-reveal"
           onMouseEnter={() => setShowButton(true)}
           onClick={() => setShowButton(true)}
         >
           <h1
-            className="font-bold leading-tight delay-200 animate-reveal whitespace-nowrap"
+            className="font-bold whitespace-nowrap animate-reveal delay-200"
             style={{
               color: "hsl(var(--hero-foreground))",
               fontSize: "clamp(1.5rem, 2.8vw, 3rem)",
@@ -68,7 +47,7 @@ const HeroSection = () => {
             Fuhrparkmanagement mit System.
           </h1>
           <p
-            className="font-bold mt-1 leading-tight delay-250 animate-reveal"
+            className="font-bold mt-1 animate-reveal delay-250"
             style={{
               color: "hsl(var(--primary))",
               fontSize: "clamp(1.3rem, 2.4vw, 2.5rem)",
@@ -77,7 +56,7 @@ const HeroSection = () => {
             Kosten senken.
           </p>
           <p
-            className="font-bold leading-tight delay-300 animate-reveal"
+            className="font-bold animate-reveal delay-300"
             style={{
               color: "hsl(var(--primary))",
               fontSize: "clamp(1.3rem, 2.4vw, 2.5rem)",
@@ -85,12 +64,15 @@ const HeroSection = () => {
           >
             Effizienz steigern.
           </p>
-          <p className="mt-4 text-base md:text-lg leading-relaxed delay-350 animate-reveal ml-auto max-w-md" style={{ color: "hsl(var(--hero-muted))" }}>
+          <p
+            className="mt-4 text-base md:text-lg leading-relaxed animate-reveal delay-350 ml-auto max-w-md"
+            style={{ color: "hsl(var(--hero-muted))" }}
+          >
             Strategische Beratung und digitale Umsetzung für Unternehmen mit großen Flotten.
           </p>
           <div
-            className="mt-5 delay-400 animate-reveal transition-opacity duration-700 ease-out"
-            style={{ opacity: showButton ? 1 : 0 }}
+            className="mt-5 transition-opacity duration-700 ease-out"
+            style={{ opacity: showButton ? 1 : 0, pointerEvents: showButton ? "auto" : "none" }}
           >
             <Button
               variant="hero"
