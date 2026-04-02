@@ -17,25 +17,46 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Diagonal wedge mask – broader at bottom, narrow at top */}
+      {/* Diagonal wedge mask – soft-edge gradient blur */}
       <div
         className="absolute inset-0 backdrop-blur-xl"
         style={{
-          clipPath: "polygon(67% 0%, 100% 0%, 100% 100%, 33% 100%)",
-          background: "linear-gradient(to bottom right, hsl(var(--hero-bg) / 0.2), hsl(var(--hero-bg) / 0.6))",
+          clipPath: "polygon(67% 0%, 100% 0%, 100% 100%, 100% 100%)",
+          background: "linear-gradient(to bottom right, hsl(var(--hero-bg) / 0.15), hsl(var(--hero-bg) / 0.55))",
         }}
       />
 
-      {/* Text block inside the glass zone */}
+      {/* Soft gradient transition zone for seamless blur edge */}
+      <div
+        className="absolute inset-0 backdrop-blur-md"
+        style={{
+          clipPath: "polygon(55% 0%, 67% 0%, 100% 100%, 85% 100%)",
+          background: "linear-gradient(to right, transparent, hsl(var(--hero-bg) / 0.2))",
+        }}
+      />
+
+      {/* Text block inside the protected zone */}
       <div className="relative z-10 w-full flex justify-end" ref={ref}>
-        <div className="w-[38%] px-8 lg:px-12 text-right flex flex-col justify-center animate-reveal">
+        <div className="w-[42%] px-8 lg:px-12 text-right flex flex-col justify-center animate-reveal">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-3 delay-100 animate-reveal" style={{ color: "hsl(var(--hero-accent))" }}>
             Fuhrparkmanagement
           </p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight delay-200 animate-reveal" style={{ color: "hsl(var(--hero-foreground))" }}>
+          <h1
+            className="font-bold leading-tight delay-200 animate-reveal whitespace-nowrap"
+            style={{
+              color: "hsl(var(--hero-foreground))",
+              fontSize: "clamp(1.5rem, 2.8vw, 3rem)",
+            }}
+          >
             Fuhrparkmanagement mit System.
           </h1>
-          <p className="text-2xl md:text-3xl lg:text-4xl font-bold mt-1 delay-250 animate-reveal" style={{ color: "hsl(var(--primary))" }}>
+          <p
+            className="font-bold mt-1 delay-250 animate-reveal"
+            style={{
+              color: "hsl(var(--primary))",
+              fontSize: "clamp(1.3rem, 2.4vw, 2.5rem)",
+            }}
+          >
             Kosten senken. Effizienz steigern.
           </p>
           <p className="mt-4 text-base md:text-lg leading-relaxed delay-300 animate-reveal ml-auto max-w-md" style={{ color: "hsl(var(--hero-muted))" }}>
