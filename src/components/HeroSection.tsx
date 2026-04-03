@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const HeroSection = () => {
   const ref = useScrollReveal();
-  const [showButton, setShowButton] = useState(false);
 
   return (
     <section className="relative min-h-[90vh] overflow-hidden" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
@@ -25,26 +23,22 @@ const HeroSection = () => {
         style={{
           clipPath: "polygon(55% 0%, 100% 0%, 100% 100%, 85% 100%)",
           background: "linear-gradient(135deg, hsl(var(--hero-bg) / 0.05), hsl(var(--hero-bg) / 0.4))",
-          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 10%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.7) 55%, #000 85%)",
-          maskImage: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 10%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.7) 55%, #000 85%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 100%)",
+          maskImage: "linear-gradient(to right, transparent 0%, black 100%)",
         }}
       />
 
       {/* Text block – top-right, high positioning */}
       <div className="relative z-10 flex justify-end pt-[12vh] px-6 lg:px-12" ref={ref}>
-        <div
-          className="text-right leading-tight cursor-pointer animate-reveal"
-          onMouseEnter={() => setShowButton(true)}
-          onClick={() => setShowButton(true)}
-        >
+        <div className="text-right leading-tight group animate-reveal">
           <h1
-            className="font-bold whitespace-nowrap animate-reveal delay-200"
+            className="font-bold animate-reveal delay-200"
             style={{
               color: "hsl(var(--hero-foreground))",
               fontSize: "clamp(1.5rem, 2.8vw, 3rem)",
             }}
           >
-            Fuhrparkmanagement mit System.
+            Fuhrparkmanagement<br />mit System.
           </h1>
           <p
             className="font-bold mt-1 animate-reveal delay-250"
@@ -68,17 +62,13 @@ const HeroSection = () => {
             className="mt-4 text-base md:text-lg leading-relaxed animate-reveal delay-350 ml-auto max-w-md"
             style={{ color: "hsl(var(--hero-muted))" }}
           >
-            Strategische Beratung und digitale Umsetzung für Unternehmen mit großen Flotten.
+            Strategische Beratung und digitale Umsetzung<br />für Unternehmen mit großen Flotten.
           </p>
-          <div
-            className="mt-5 transition-opacity duration-700 ease-out"
-            style={{ opacity: showButton ? 1 : 0, pointerEvents: showButton ? "auto" : "none" }}
-          >
+          <div className="mt-5 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-700 ease-out">
             <Button
               variant="hero"
               size="lg"
-              onClick={(e) => {
-                e.stopPropagation();
+              onClick={() => {
                 document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
