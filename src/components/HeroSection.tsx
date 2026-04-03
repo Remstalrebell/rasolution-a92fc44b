@@ -53,7 +53,7 @@ const HeroSection = () => {
               fontSize: "clamp(1.3rem, 2.4vw, 2.5rem)",
             }}
           >
-            Kosten senken.
+            Effizienz steigern.
           </p>
           <p
             className="font-bold animate-reveal delay-300"
@@ -62,7 +62,7 @@ const HeroSection = () => {
               fontSize: "clamp(1.3rem, 2.4vw, 2.5rem)",
             }}
           >
-            Effizienz steigern.
+            Kosten senken.
           </p>
           <p
             className="mt-4 text-base md:text-lg leading-relaxed animate-reveal delay-350 ml-auto max-w-md"
