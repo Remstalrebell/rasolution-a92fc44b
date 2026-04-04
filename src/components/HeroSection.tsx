@@ -17,25 +17,26 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Single seamless blur wedge */}
+      {/* Glassmorphism wedge – razor-sharp diagonal, no stripes */}
       <div
-        className="absolute inset-0 backdrop-blur-xl"
+        className="absolute inset-0"
         style={{
           clipPath: "polygon(55% 0%, 100% 0%, 100% 100%, 85% 100%)",
-          background: "linear-gradient(135deg, hsl(var(--hero-bg) / 0.05), hsl(var(--hero-bg) / 0.4))",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 100%)",
-          maskImage: "linear-gradient(to right, transparent 0%, black 100%)",
+          backdropFilter: "blur(15px)",
+          WebkitBackdropFilter: "blur(15px)",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
         }}
       />
 
       {/* Text block – top-right, high positioning */}
-      <div className="relative z-10 flex justify-end pt-[12vh] px-6 lg:px-12" ref={ref}>
-        <div className="text-right leading-tight group animate-reveal">
+      <div className="relative z-10 flex justify-end pt-[12vh] px-4 sm:px-6 lg:px-12" ref={ref}>
+        <div className="text-right leading-tight group animate-reveal max-w-[90vw] sm:max-w-none">
           <h1
             className="font-bold animate-reveal delay-200"
             style={{
               color: "hsl(var(--hero-foreground))",
-              fontSize: "clamp(1.5rem, 2.8vw, 3rem)",
+              fontSize: "clamp(1.3rem, 2.8vw, 3rem)",
             }}
           >
             Fuhrparkmanagement<br />mit System.
@@ -44,7 +45,7 @@ const HeroSection = () => {
             className="font-bold mt-1 animate-reveal delay-250"
             style={{
               color: "hsl(var(--primary))",
-              fontSize: "clamp(1.3rem, 2.4vw, 2.5rem)",
+              fontSize: "clamp(1.1rem, 2.4vw, 2.5rem)",
             }}
           >
             Effizienz steigern.
@@ -53,13 +54,13 @@ const HeroSection = () => {
             className="font-bold animate-reveal delay-300"
             style={{
               color: "hsl(var(--primary))",
-              fontSize: "clamp(1.3rem, 2.4vw, 2.5rem)",
+              fontSize: "clamp(1.1rem, 2.4vw, 2.5rem)",
             }}
           >
             Kosten senken.
           </p>
           <p
-            className="mt-4 text-base md:text-lg leading-relaxed animate-reveal delay-350 ml-auto max-w-md"
+            className="mt-4 text-sm sm:text-base md:text-lg leading-relaxed animate-reveal delay-350 ml-auto max-w-md"
             style={{ color: "hsl(var(--hero-muted))" }}
           >
             Strategische Beratung und digitale Umsetzung<br />für Unternehmen mit großen Flotten.
@@ -68,6 +69,7 @@ const HeroSection = () => {
             <Button
               variant="hero"
               size="lg"
+              className="w-full sm:w-auto"
               onClick={() => {
                 document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
               }}
