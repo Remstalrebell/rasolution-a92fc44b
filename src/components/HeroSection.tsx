@@ -29,21 +29,27 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Mobile: vertical gradient blur from bottom */}
-      <div
-        className="absolute inset-0 block sm:hidden"
-        style={{
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          background: "rgba(255, 255, 255, 0.03)",
-          maskImage: "linear-gradient(to top, black 0%, black 30%, transparent 60%)",
-          WebkitMaskImage: "linear-gradient(to top, black 0%, black 30%, transparent 60%)",
-        }}
-      />
-
       {/* Text block – top-right, high positioning */}
       <div className="relative z-10 flex justify-end pt-[18vh] sm:pt-[12vh] px-4 sm:px-6 lg:px-12" ref={ref}>
-        <div className="text-right leading-tight group animate-reveal max-w-[90vw] sm:max-w-none">
+        <div
+          className="text-right leading-tight group animate-reveal max-w-[90vw] sm:max-w-none sm:bg-transparent sm:backdrop-blur-none sm:border-0 sm:rounded-none rounded-2xl px-5 py-4 sm:px-0 sm:py-0"
+          style={{
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            background: "rgba(255, 255, 255, 0.08)",
+          }}
+          ref={ref}
+        >
+          {/* Remove mobile glass styles on desktop via inline override */}
+          <style>{`
+            @media (min-width: 640px) {
+              .hero-glass-mobile {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: transparent !important;
+              }
+            }
+          `}</style>
           <h1
             className="font-bold animate-reveal delay-200"
             style={{
