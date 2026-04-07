@@ -17,15 +17,15 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Glassmorphism wedge – razor-sharp diagonal, no stripes */}
+      {/* Glassmorphism wedge – razor-sharp diagonal */}
       <div
         className="absolute inset-0"
         style={{
           clipPath: "polygon(55% 0%, 100% 0%, 100% 100%, 85% 100%)",
-          backdropFilter: "blur(15px)",
-          WebkitBackdropFilter: "blur(15px)",
-          background: "rgba(255, 255, 255, 0.1)",
-          borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          background: "rgba(255, 255, 255, 0.05)",
+          borderLeft: "1px solid rgba(255, 255, 255, 0.12)",
         }}
       />
 
