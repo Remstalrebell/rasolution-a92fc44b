@@ -17,20 +17,32 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Glassmorphism wedge – razor-sharp diagonal */}
+      {/* Glassmorphism wedge – desktop: flatter diagonal, mobile: bottom-up vertical */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden sm:block"
         style={{
-          clipPath: "polygon(55% 0%, 100% 0%, 100% 100%, 85% 100%)",
+          clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 80% 100%)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          background: "rgba(255, 255, 255, 0.05)",
-          borderLeft: "1px solid rgba(255, 255, 255, 0.12)",
+          background: "rgba(255, 255, 255, 0.03)",
+          borderLeft: "0.5px solid rgba(255, 255, 255, 0.08)",
+        }}
+      />
+
+      {/* Mobile: vertical gradient blur from bottom */}
+      <div
+        className="absolute inset-0 block sm:hidden"
+        style={{
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+          background: "rgba(255, 255, 255, 0.03)",
+          maskImage: "linear-gradient(to top, black 0%, black 30%, transparent 60%)",
+          WebkitMaskImage: "linear-gradient(to top, black 0%, black 30%, transparent 60%)",
         }}
       />
 
       {/* Text block – top-right, high positioning */}
-      <div className="relative z-10 flex justify-end pt-[12vh] px-4 sm:px-6 lg:px-12" ref={ref}>
+      <div className="relative z-10 flex justify-end pt-[18vh] sm:pt-[12vh] px-4 sm:px-6 lg:px-12" ref={ref}>
         <div className="text-right leading-tight group animate-reveal max-w-[90vw] sm:max-w-none">
           <h1
             className="font-bold animate-reveal delay-200"
@@ -45,7 +57,7 @@ const HeroSection = () => {
             className="font-bold mt-1 animate-reveal delay-250"
             style={{
               color: "hsl(var(--primary))",
-              fontSize: "clamp(1.1rem, 2.4vw, 2.5rem)",
+              fontSize: "clamp(0.95rem, 2.4vw, 2.5rem)",
             }}
           >
             Effizienz steigern.
@@ -54,7 +66,7 @@ const HeroSection = () => {
             className="font-bold animate-reveal delay-300"
             style={{
               color: "hsl(var(--primary))",
-              fontSize: "clamp(1.1rem, 2.4vw, 2.5rem)",
+              fontSize: "clamp(0.95rem, 2.4vw, 2.5rem)",
             }}
           >
             Kosten senken.
