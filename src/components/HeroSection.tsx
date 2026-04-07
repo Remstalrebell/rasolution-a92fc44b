@@ -17,7 +17,15 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Glassmorphism wedge – desktop: flatter diagonal, mobile: bottom-up vertical */}
+      {/* Subtle dark gradient overlay – top third only, for text readability */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 33%, transparent 50%)",
+        }}
+      />
+
+      {/* Glassmorphism wedge – desktop only */}
       <div
         className="absolute inset-0 hidden sm:block"
         style={{
@@ -32,7 +40,8 @@ const HeroSection = () => {
       {/* Text block – top-right, high positioning */}
       <div className="relative z-10 flex justify-end pt-[18vh] sm:pt-[12vh] px-4 sm:px-6 lg:px-12" ref={ref}>
         <div
-          className="hero-glass-mobile text-right leading-tight group animate-reveal max-w-[90vw] sm:max-w-none rounded-2xl sm:rounded-none px-5 py-4 sm:px-0 sm:py-0"
+          className="text-right leading-tight group animate-reveal max-w-[90vw] sm:max-w-none"
+          style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.4)" }}
         >
           <h1
             className="font-bold animate-reveal delay-200"
