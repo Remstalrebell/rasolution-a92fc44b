@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Truck } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import RasolutionLogo from "@/components/RasolutionLogo";
 
 const navLinks = [
   { label: "Über uns", href: "#about" },
@@ -37,7 +38,7 @@ const Header = () => {
     >
       <div className="container flex items-center justify-between h-16 md:h-18">
         <a href="#" className="flex items-center gap-2 font-bold text-lg tracking-tight text-slate-900" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-          <Truck className="h-5 w-5 text-primary" />
+          <RasolutionLogo className="h-5 w-5 text-primary" />
           Rasolution
         </a>
 

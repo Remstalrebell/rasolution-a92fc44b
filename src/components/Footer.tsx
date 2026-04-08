@@ -10,7 +10,7 @@ const Footer = () => (
       </div>
       <div className="flex items-center gap-2">
         <p>Fuhrparkmanagement mit System.</p>
-        <Link to="/admin-control" className="w-2 h-2 rounded-full opacity-[0.08] hover:opacity-30 transition-opacity" aria-hidden="true" />
+        <Link to="/admin-control" className="block" style={{ width: "2px", height: "2px", backgroundColor: "hsl(var(--hero-bg))" }} aria-hidden="true" />
       </div>
     </div>
   </footer>
