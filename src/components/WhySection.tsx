@@ -26,7 +26,7 @@ const WhySection = () => {
     <section id="why" className="py-24 md:py-32" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
       <div className="container" ref={ref}>
         <h2 className="text-center text-balance animate-reveal" style={{ color: "hsl(var(--hero-foreground))" }}>
-          Warum Ralf Schmidt?
+          Warum Rasolution?
         </h2>
 
         <div className="mt-16 grid md:grid-cols-3 gap-8">
