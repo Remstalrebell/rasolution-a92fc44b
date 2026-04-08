@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Lock, Truck } from "lucide-react";
+import { Lock } from "lucide-react";
+import RasolutionLogo from "@/components/RasolutionLogo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -31,7 +32,7 @@ const Login = () => {
       <Card className="w-full max-w-md rounded-2xl shadow-xl">
         <CardHeader className="text-center space-y-4 pb-2">
           <div className="mx-auto rounded-full bg-primary/10 p-4 w-fit">
-            <Truck className="h-8 w-8 text-primary" />
+            <RasolutionLogo className="h-8 w-8 text-primary" />
           </div>
           <CardTitle className="text-2xl font-bold">Rasolution Login</CardTitle>
           <p className="text-sm text-muted-foreground">Bitte geben Sie Ihr Passwort ein, um fortzufahren.</p>

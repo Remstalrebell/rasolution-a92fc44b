@@ -24,11 +24,11 @@ const Datenschutz = () => (
           <h2 className="text-xl font-semibold mb-2">2. Verantwortliche Stelle</h2>
           <p className="text-muted-foreground">
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br /><br />
-            Ralf Schmidt<br />
-            Rasolution – Fuhrparkmanagement<br />
+            Rasolution<br />
+            Fuhrparkmanagement<br />
             Musterstraße 1<br />
             12345 Musterstadt<br /><br />
-            E-Mail: info@rasolution.io
+            Kontakt über das Formular auf der Website
           </p>
         </section>
 

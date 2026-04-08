@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Truck } from "lucide-react";
+import RasolutionLogo from "@/components/RasolutionLogo";
 
 const AboutSection = () => {
   const ref = useScrollReveal();
@@ -16,7 +16,7 @@ const AboutSection = () => {
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
           <div className="shrink-0 animate-reveal">
             <div className="h-40 w-40 rounded-full border-2 border-primary/30 shadow-lg bg-muted/50 flex items-center justify-center">
-              <Truck className="h-16 w-16 text-primary/60" />
+              <RasolutionLogo className="h-16 w-16 text-primary/60" />
             </div>
           </div>
           <div className="text-center md:text-left">
