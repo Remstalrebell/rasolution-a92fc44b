@@ -15,7 +15,6 @@ const Impressum = () => (
         <section>
           <h2 className="text-xl font-semibold mb-2">Angaben gemäß § 5 TMG</h2>
           <p className="text-muted-foreground">
-            Ralf Schmidt<br />
             Rasolution – Fuhrparkmanagement<br />
             Musterstraße 1<br />
             12345 Musterstadt
@@ -41,7 +40,7 @@ const Impressum = () => (
         <section>
           <h2 className="text-xl font-semibold mb-2">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
           <p className="text-muted-foreground">
-            Ralf Schmidt<br />
+            Rasolution<br />
             Musterstraße 1<br />
             12345 Musterstadt
           </p>

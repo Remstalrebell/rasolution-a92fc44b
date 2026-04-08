@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,11 +18,27 @@ import Datenschutz from "./pages/Datenschutz.tsx";
 import Login from "./pages/Login.tsx";
 import AuthGuard from "./components/AuthGuard.tsx";
 import Wartung from "./pages/Wartung.tsx";
+import AdminControl from "./pages/AdminControl.tsx";
 
 const queryClient = new QueryClient();
 
-// Wartungsmodus: auf true setzen, um die gesamte App auf die Wartungsseite umzuleiten
-const isMaintenanceMode = false;
+const MAINTENANCE_KEY = "rasolution_maintenance";
+
+const MaintenanceGate = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation();
+  const isMaintenance = localStorage.getItem(MAINTENANCE_KEY) === "true";
+
+  // Always allow access to admin control & maintenance page itself
+  if (location.pathname === "/admin-control" || location.pathname === "/wartung") {
+    return <>{children}</>;
+  }
+
+  if (isMaintenance) {
+    return <Wartung />;
+  }
+
+  return <>{children}</>;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -30,11 +46,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        {isMaintenanceMode ? (
-          <Routes>
-            <Route path="*" element={<Wartung />} />
-          </Routes>
-        ) : (
+        <MaintenanceGate>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/marketing" element={<MarketingPage />} />
@@ -42,6 +54,7 @@ const App = () => (
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/login" element={<Login />} />
             <Route path="/wartung" element={<Wartung />} />
+            <Route path="/admin-control" element={<AdminControl />} />
 
             {/* App Shell mit Sidebar – geschützt */}
             <Route path="/app" element={<AuthGuard><AppLayout /></AuthGuard>}>
@@ -55,7 +68,7 @@ const App = () => (
 
             <Route path="*" element={<NotFound />} />
           </Routes>
-        )}
+        </MaintenanceGate>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -1,8 +1,6 @@
 import { LayoutDashboard, BarChart3, Settings, Users, FileText, Truck } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
-import { useLocation } from "react-router-dom";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import ralfImg from "@/assets/ralf-schmidt.jpg";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 import {
   Sidebar,
@@ -65,17 +63,15 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      {/* Partner section */}
       <SidebarFooter className="border-t border-border p-5">
         <div className={`flex ${collapsed ? "justify-center" : "items-center gap-4"}`}>
-          <Avatar className="h-14 w-14 shrink-0 border-2 border-amber-500/40 shadow-lg shadow-amber-500/20 ring-2 ring-amber-500/50">
-            <AvatarImage src={ralfImg} alt="Ralf Schmidt" className="object-cover" />
-            <AvatarFallback className="bg-primary/10 text-primary text-lg font-bold">RS</AvatarFallback>
+          <Avatar className="h-14 w-14 shrink-0 border-2 border-primary/20">
+            <AvatarFallback className="bg-primary/10 text-primary text-lg font-bold">R</AvatarFallback>
           </Avatar>
           {!collapsed && (
             <div className="flex flex-col min-w-0">
-              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground leading-tight">Ihr Fuhrpark-Experte</span>
-              <span className="text-sm font-bold text-foreground truncate mt-0.5">Ralf Schmidt</span>
+              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground leading-tight">Fuhrpark-Experten</span>
+              <span className="text-sm font-bold text-foreground truncate mt-0.5">Rasolution</span>
             </div>
           )}
         </div>

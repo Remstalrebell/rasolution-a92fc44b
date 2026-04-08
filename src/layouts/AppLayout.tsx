@@ -45,7 +45,7 @@ const AppLayout = () => {
                 <DropdownMenuTrigger asChild>
                   <button className="rounded-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                     <Avatar className="h-9 w-9 cursor-pointer border-2 border-primary/20">
-                      <AvatarFallback className="bg-primary/10 text-primary text-xs font-bold">RS</AvatarFallback>
+                      <AvatarFallback className="bg-primary/10 text-primary text-xs font-bold">R</AvatarFallback>
                     </Avatar>
                   </button>
                 </DropdownMenuTrigger>
