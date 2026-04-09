@@ -24,11 +24,11 @@ const ContactSection = () => {
     <section id="contact" className="py-24 md:py-32 bg-background">
       <div className="container" ref={ref}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-center text-foreground text-balance animate-reveal">
-            Kontakt aufnehmen
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-primary animate-reveal">
+            Rasolution
           </h2>
-          <p className="mt-4 text-center text-muted-foreground text-lg max-w-2xl mx-auto animate-reveal delay-100">
-            Rasolution – Ihr strategischer Partner für modernes Fuhrparkmanagement.
+          <p className="mt-3 text-center text-muted-foreground text-lg max-w-2xl mx-auto animate-reveal delay-100">
+            Ihr strategischer Partner für modernes Fuhrparkmanagement.
           </p>
           <p className="mt-2 text-center text-muted-foreground animate-reveal delay-100">
             Lassen Sie uns über Ihre Flotte sprechen.
