@@ -113,6 +113,72 @@ const Dashboard = () => {
         </CardContent>
       </Card>
 
+      {/* Demo-Karten */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Flotten-Status */}
+        <Card className="rounded-xl">
+          <CardHeader>
+            <CardTitle className="text-lg">Flotten-Status</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center justify-center">
+              <div className="relative w-40 h-40">
+                <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                  <circle cx="18" cy="18" r="15.91549" fill="none" stroke="hsl(var(--muted))" strokeWidth="3" />
+                  <circle cx="18" cy="18" r="15.91549" fill="none" stroke="hsl(142 76% 36%)" strokeWidth="3" strokeDasharray="82 18" strokeDashoffset="0" strokeLinecap="round" />
+                  <circle cx="18" cy="18" r="15.91549" fill="none" stroke="hsl(45 93% 47%)" strokeWidth="3" strokeDasharray="12 88" strokeDashoffset="-82" strokeLinecap="round" />
+                  <circle cx="18" cy="18" r="15.91549" fill="none" stroke="hsl(0 84% 60%)" strokeWidth="3" strokeDasharray="6 94" strokeDashoffset="-94" strokeLinecap="round" />
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <span className="text-2xl font-extrabold text-foreground">82%</span>
+                  <span className="text-xs text-muted-foreground">Einsatzbereit</span>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 flex justify-center gap-4 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-600" />82% Einsatzbereit</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500" />12% Werkstatt</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500" />6% Inaktiv</span>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Kosteneinsparung */}
+        <Card className="rounded-xl">
+          <CardHeader>
+            <CardTitle className="text-lg">Kosteneinsparung 2026</CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-col items-center justify-center py-6">
+            <p className="text-4xl font-extrabold tracking-tight bg-gradient-to-b from-amber-400 to-amber-700 bg-clip-text text-transparent">42.580 €</p>
+            <div className="mt-3 flex items-center gap-1 text-green-600 font-semibold text-sm">
+              <TrendingUp className="h-4 w-4" />
+              +18,3 % ggü. Vorjahr
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Wichtige Termine */}
+        <Card className="rounded-xl">
+          <CardHeader>
+            <CardTitle className="text-lg">Wichtige Termine</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-4">
+              {[
+                { date: "15. Mai 2026", label: "HU Lkw-Zentrale" },
+                { date: "02. Jun 2026", label: "Leasing-Check PKW-Pool" },
+                { date: "19. Jun 2026", label: "Audit-Termin ISO 14001" },
+              ].map((t) => (
+                <li key={t.label} className="flex items-start gap-3">
+                  <Badge variant="outline" className="shrink-0 text-xs">{t.date}</Badge>
+                  <span className="text-sm text-foreground">{t.label}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
+
       <ProjectTable projects={projects} onSelectProject={setSelectedProject} />
       <ProjectDetailSheet project={selectedProject} onClose={() => setSelectedProject(null)} />
       <NewProjectDialog open={dialogOpen} onOpenChange={setDialogOpen} />
