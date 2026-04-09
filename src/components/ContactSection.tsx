@@ -27,7 +27,10 @@ const ContactSection = () => {
           <h2 className="text-center text-foreground text-balance animate-reveal">
             Kontakt aufnehmen
           </h2>
-          <p className="mt-4 text-center text-muted-foreground text-lg animate-reveal delay-100">
+          <p className="mt-4 text-center text-muted-foreground text-lg max-w-2xl mx-auto animate-reveal delay-100">
+            Rasolution – Ihr strategischer Partner für modernes Fuhrparkmanagement.
+          </p>
+          <p className="mt-2 text-center text-muted-foreground animate-reveal delay-100">
             Lassen Sie uns über Ihre Flotte sprechen.
           </p>
 
