@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
+
 const Wartung = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[hsl(var(--hero-bg))]">
+    <div className="relative min-h-screen flex flex-col overflow-hidden bg-[hsl(var(--hero-bg))]">
+      {/* Main content centered */}
+      <div className="flex-1 flex items-center justify-center">
       {/* Blurred background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
