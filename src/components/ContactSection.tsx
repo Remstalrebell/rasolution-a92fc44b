@@ -17,7 +17,7 @@ const ContactSection = () => {
     const body = encodeURIComponent(
       `Name: ${form.name}\nE-Mail: ${form.email}\n\nNachricht:\n${form.message}`
     );
-    window.location.href = `mailto:ceo@rasolution.io?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@rasolution.io?subject=${subject}&body=${body}`;
   };
 
   return (
