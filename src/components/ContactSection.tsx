@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Phone, Send } from "lucide-react";
+import { Phone, Send, Instagram } from "lucide-react";
 
 const ContactSection = () => {
   const ref = useScrollReveal();
@@ -17,7 +17,7 @@ const ContactSection = () => {
     const body = encodeURIComponent(
       `Name: ${form.name}\nE-Mail: ${form.email}\n\nNachricht:\n${form.message}`
     );
-    window.location.href = `mailto:ceo@rasolution.io?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@rasolution.io?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -41,11 +41,21 @@ const ContactSection = () => {
                 <p className="text-sm font-semibold text-foreground">Rasolution</p>
                 <p className="text-sm text-muted-foreground">Fuhrparkmanagement mit System</p>
               </div>
-              <a href="tel:+491781788817" className="inline-flex">
+              <a href="tel:+491567972893" className="inline-flex">
                 <Button variant="navy" size="default" className="gap-2">
                   <Phone size={16} />
                   Jetzt Anrufen
                 </Button>
+              </a>
+              <a
+                href="https://www.instagram.com/rasolution.media"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                aria-label="Instagram @rasolution.media"
+              >
+                <Instagram size={18} />
+                @rasolution.media
               </a>
             </div>
 

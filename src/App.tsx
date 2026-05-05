@@ -19,6 +19,7 @@ import Login from "./pages/Login.tsx";
 import AuthGuard from "./components/AuthGuard.tsx";
 import Wartung from "./pages/Wartung.tsx";
 import AdminControl from "./pages/AdminControl.tsx";
+import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <CookieConsent />
         <MaintenanceGate>
           <Routes>
             <Route path="/" element={<Index />} />

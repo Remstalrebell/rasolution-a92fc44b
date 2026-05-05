@@ -1,5 +1,5 @@
 import { LayoutDashboard, BarChart3, Settings, Users, FileText } from "lucide-react";
-import RasolutionLogo from "@/components/RasolutionLogo";
+import logoUrl from "@/assets/rasolution-logo.png";
 import { NavLink } from "@/components/NavLink";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
@@ -32,9 +32,12 @@ export function AppSidebar() {
     <Sidebar collapsible="icon" className="border-r border-border">
       <SidebarContent className="pt-5">
         <div className="px-5 pb-5 flex items-center gap-2">
-          <RasolutionLogo className="h-5 w-5 text-primary shrink-0" />
-          <a href="/" className="font-bold text-lg tracking-tight text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-            {collapsed ? "" : "Rasolution"}
+          <a href="/" className="flex items-center" aria-label="Rasolution">
+            {collapsed ? (
+              <img src={logoUrl} alt="Rasolution" className="h-6 w-6 object-contain object-left" style={{ objectPosition: "left" }} />
+            ) : (
+              <img src={logoUrl} alt="Rasolution" className="h-7 w-auto object-contain" />
+            )}
           </a>
         </div>
 
