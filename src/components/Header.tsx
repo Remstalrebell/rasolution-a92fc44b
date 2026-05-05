@@ -38,7 +38,7 @@ const Header = () => {
     >
       <div className="container flex items-center justify-between h-16 md:h-18">
         <a href="#" className="flex items-center" aria-label="Rasolution">
-          <img src={logoUrl} alt="Rasolution – Fleetmanagement, E-Mobility, Digital, Security" className="h-8 md:h-9 w-auto object-contain" loading="eager" decoding="async" />
+          <img src={logoUrl} alt="Rasolution – Fleetmanagement, E-Mobility, Digital, Security" className="h-10 max-h-10 w-auto object-contain bg-transparent" loading="eager" decoding="async" />
         </a>
 
         {/* Desktop */}
