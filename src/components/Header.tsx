@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import RasolutionLogo from "@/components/RasolutionLogo";
+import logoUrl from "@/assets/rasolution-logo.png";
 
 const navLinks = [
   { label: "Über uns", href: "#about" },
@@ -37,9 +37,8 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-18">
-        <a href="#" className="flex items-center gap-2 font-bold text-lg tracking-tight text-slate-900" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-          <RasolutionLogo className="h-5 w-5 text-primary" />
-          Rasolution
+        <a href="#" className="flex items-center" aria-label="Rasolution">
+          <img src={logoUrl} alt="Rasolution – Fleetmanagement, E-Mobility, Digital, Security" className="h-8 md:h-9 w-auto object-contain" loading="eager" decoding="async" />
         </a>
 
         {/* Desktop */}
