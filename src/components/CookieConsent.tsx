@@ -20,6 +20,22 @@ const CookieConsent = () => {
 
   const save = (consent: Consent) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    if (typeof w.gtag === "function") {
+      w.gtag("consent", "update", {
+        ad_storage: consent.marketing ? "granted" : "denied",
+        ad_user_data: consent.marketing ? "granted" : "denied",
+        ad_personalization: consent.marketing ? "granted" : "denied",
+        analytics_storage: consent.analytics ? "granted" : "denied",
+      });
+    }
+    if (consent.marketing && !document.getElementById("linkedin-insight-tag")) {
+      const s = document.createElement("script");
+      s.id = "linkedin-insight-tag";
+      s.async = true;
+      s.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+      document.head.appendChild(s);
+    }
     setOpen(false);
   };
 
