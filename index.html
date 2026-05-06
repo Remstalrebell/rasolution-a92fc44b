@@ -13,7 +13,20 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      // Consent Mode v2 — denied by default until user opts in via CookieConsent
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
       gtag('config', 'G-8YVWQVPMXW');
+      // LinkedIn Insight Tag — placeholder; loaded only after marketing consent
+      window._linkedin_partner_id = window._linkedin_partner_id || "PLACEHOLDER_PARTNER_ID";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
     </script>
 
     <meta property="og:type" content="website" />
