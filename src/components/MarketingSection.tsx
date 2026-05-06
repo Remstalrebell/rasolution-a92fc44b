@@ -29,6 +29,7 @@ const MarketingSection = () => {
   const ref = useScrollReveal();
 
   return (
+    <>
     <section id="marketing" className="py-24 md:py-32 bg-secondary/50">
       <div className="container" ref={ref}>
         <div className="max-w-3xl mx-auto text-center animate-reveal">
