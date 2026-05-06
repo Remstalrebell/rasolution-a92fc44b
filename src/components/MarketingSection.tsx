@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Globe, BarChart3, Target, Megaphone } from "lucide-react";
+import { Globe, BarChart3, Target, Megaphone, Rocket, Bot, CreditCard, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
