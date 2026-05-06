@@ -19,7 +19,7 @@ const Footer = () => (
               onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.1"; e.currentTarget.style.backgroundColor = "currentColor"; }}
             />
           </span>
-          <
+          <a
             href="https://www.instagram.com/rasolution.media"
             target="_blank"
             rel="noopener noreferrer"
@@ -29,10 +29,7 @@ const Footer = () => (
             <Instagram className="h-5 w-5" />
           </a>
         </div>
-        <div className="flex items-center gap-2">
-          <p>Fuhrparkmanagement mit System.</p>
-          <Link to="/admin-control" className="block" style={{ width: "4px", height: "4px", backgroundColor: "currentColor", opacity: 0.1 }} aria-hidden="true" />
-        </div>
+        <p>Fuhrparkmanagement mit System.</p>
       </div>
       <div className="text-center text-xs opacity-70">
         <a
