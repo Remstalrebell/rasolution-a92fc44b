@@ -36,7 +36,7 @@ const Header = () => {
           : "bg-white/60 backdrop-blur-sm"
       }`}
     >
-      <div className="container flex items-center justify-between h-16 md:h-18">
+      <div className="container flex items-center justify-between h-16 md:h-[4.5rem]">
         <a href="#" className="flex items-center" aria-label="Rasolution">
           <img src={logoUrl} alt="Rasolution – Fleetmanagement, E-Mobility, Digital, Security" className="h-10 max-h-10 w-auto object-contain bg-transparent" loading="eager" decoding="async" />
         </a>
