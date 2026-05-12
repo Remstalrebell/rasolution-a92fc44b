@@ -65,7 +65,7 @@ const App = () => (
               <Route path="kunden" element={<Kunden />} />
               <Route path="analysen" element={<Analysen />} />
               <Route path="einstellungen" element={<Einstellungen />} />
-            <Route path="marketing-internal" element={<MarketingInternal />} />
+              <Route path="marketing-internal" element={<MarketingInternal />} />
             </Route>
 
             {/* Stealth-Link-System V2.0 - Industrial Alpha Protocol */}
