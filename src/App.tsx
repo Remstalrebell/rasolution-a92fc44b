@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -67,6 +67,11 @@ const App = () => (
               <Route path="einstellungen" element={<Einstellungen />} />
               <Route path="marketing-internal" element={<MarketingInternal />} />
             </Route>
+
+            {/* Stealth-Link-System V2.0 - Industrial Alpha Protocol */}
+            <Route path="/vidiq" element={<Navigate to="https://vidiq.com/features/keyword-tools/?afmc=ralfiverse&a=99094" replace />} />
+            <Route path="/emergent" element={<Navigate to="https://app.emergent.sh/register?ref=ceor250178" replace />} />
+            <Route path="/qonto" element={<Navigate to="https://qonto.com/r/loa54f" replace />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
