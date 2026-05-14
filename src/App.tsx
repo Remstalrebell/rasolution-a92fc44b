@@ -20,8 +20,14 @@ import AuthGuard from "./components/AuthGuard.tsx";
 import Wartung from "./pages/Wartung.tsx";
 import AdminControl from "./pages/AdminControl.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
+import { useGAPageView } from "./hooks/useGAPageView";
 
 const queryClient = new QueryClient();
+
+const GAPageViewTracker = () => {
+  useGAPageView();
+  return null;
+};
 
 const MAINTENANCE_KEY = "rasolution_maintenance";
 
@@ -47,6 +53,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <GAPageViewTracker />
         <CookieConsent />
         <MaintenanceGate>
           <Routes>
