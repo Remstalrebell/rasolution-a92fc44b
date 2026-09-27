@@ -9,17 +9,24 @@ import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Bike, Leaf, Users, Receipt, BatteryCharging, ShieldCheck } from "lucide-react";
 
+// Beispiele aus dem Bestand von BIKE2FUTURE (Stand 09/2026) – Verfügbarkeit & Preise tagesaktuell auf Anfrage
 const bikes = [
-  { cat: "City E-Bike", name: "Urban Comfort 500", battery: "500 Wh", range: "bis 110 km", saving: "38 %", price: "1.890 €" },
-  { cat: "Trekking E-Bike", name: "Tour Explorer 625", battery: "625 Wh", range: "bis 140 km", saving: "35 %", price: "2.490 €" },
-  { cat: "Premium-MTB", name: "Trail Pro 750", battery: "750 Wh", range: "bis 120 km", saving: "41 %", price: "3.690 €" },
-  { cat: "Lasten-E-Bike", name: "Cargo Family 545", battery: "545 Wh", range: "bis 90 km", saving: "33 %", price: "3.190 €" },
-  { cat: "Kompakt / Falt", name: "Fold City 400", battery: "400 Wh", range: "bis 70 km", saving: "30 %", price: "1.490 €" },
-  { cat: "S-Pedelec", name: "Speed Commuter 45", battery: "750 Wh", range: "bis 100 km", saving: "36 %", price: "3.990 €" },
+  { cat: "Trekking / SUV", name: "Gazelle Arroyo C7", year: "2025", km: "458 km", uvp: "3.358,95 €", price: "1.899,00 €" },
+  { cat: "SUV Fully", name: "Ortler Bozen SUV Fully", year: "2023", km: "1.427 km", uvp: "4.159,98 €", price: "1.999,00 €" },
+  { cat: "Cross / Trekking", name: "Bulls Cross Rider Evo 1", year: "2023", km: "1.264 km", uvp: "4.126,90 €", price: "2.039,00 €" },
+  { cat: "SUV", name: "Conway Xyron SUV 2.7", year: "2025", km: "1.987 km", uvp: "3.579,00 €", price: "2.119,00 €" },
+  { cat: "E-MTB", name: "KTM Macina E. Mountain 29", year: "2024", km: "1.361 km", uvp: "4.190,96 €", price: "2.289,00 €" },
+  { cat: "E-MTB Fully", name: "Bulls Sonic Evo AM 1", year: "2024", km: "585 km", uvp: "3.999,00 €", price: "2.359,00 €" },
+  { cat: "Premium E-MTB", name: "Haibike Allmtn 2", year: "2025", km: "291 km", uvp: "5.244,00 €", price: "3.049,00 €" },
+  { cat: "Premium E-MTB", name: "Conway eWME 6.9", year: "2022", km: "1.776 km", uvp: "5.788,95 €", price: "3.039,00 €" },
+  { cat: "Freeride E-MTB", name: "Haibike Nduro 8 Freeride", year: "2023", km: "1 km", uvp: "8.056,95 €", price: "4.199,00 €" },
 ];
 
+const toNum = (s: string) => parseFloat(s.replace(/[^\d,]/g, "").replace(",", "."));
+const saving = (b: { uvp: string; price: string }) => Math.round((1 - toNum(b.price) / toNum(b.uvp)) * 100);
+
 const faqs = [
-  { q: "Welche Garantie erhalte ich auf ein Refurbished E-Bike?", a: "Jedes aufbereitete Fahrrad wird mit einer Gewährleistung von 12 Monaten ausgeliefert. Auf den Akku geben wir zusätzlich eine Mindestkapazitätszusage: Liegt die Restkapazität innerhalb der ersten sechs Monate unter 80 % des Nennwerts, wird der Akku kostenfrei geprüft und bei Bedarf ersetzt. Verschleißteile wie Bremsbeläge, Reifen und Kette sind beim Kauf neu oder nachweislich in sehr gutem Zustand." },
+  { q: "Welche Garantie erhalte ich auf ein Refurbished E-Bike?", a: "Auf jedes gebrauchte E-Bike aus dem Bestand unseres Partners BIKE2FUTURE gibt es ohne Aufpreis eine erweiterte Garantie von 24 Monaten auf Akku und Motor – die teuersten Komponenten eines E-Bikes. Zusätzlich gelten die gesetzlichen Gewährleistungsrechte." },
   { q: "Wie läuft der Aufbereitungsprozess (Refurbishment) ab?", a: "Jeder Leasingrückläufer durchläuft einen mehrstufigen Prozess: Eingangsprüfung und Dokumentation, vollständige Reinigung, Diagnose von Motor und Elektronik per Herstellersoftware, Akkutest mit Kapazitätsmessung, Austausch aller Verschleißteile nach Bedarf, Einstellung von Schaltung und Bremsen sowie eine abschließende Probefahrt. Erst nach bestandener Endkontrolle erhält das Fahrrad ein Prüfprotokoll und wird freigegeben." },
   { q: "Wie und wohin wird geliefert?", a: "Wir liefern deutschlandweit fahrbereit vormontiert per Speditionsversand, in der Regel innerhalb von 5 bis 10 Werktagen. Lenker und Pedale sind mit wenigen Handgriffen montiert; eine Anleitung liegt bei. In der Region Stuttgart / Rems-Murr ist auch eine persönliche Übergabe mit Einweisung möglich." },
   { q: "Kann mein Unternehmen Diensträder über Rasolution beziehen?", a: "Ja. Wir unterstützen Unternehmen bei der Konzeption eines Dienstradprogramms – von der Auswahl eines geeigneten Leasingpartners über die Überlassungsverträge bis zur Integration in das bestehende Mobilitäts- und Fuhrparkkonzept." },
@@ -96,7 +103,7 @@ const Mobilitaetsmanagement = () => {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Katalog: Geprüfte Leasingrückläufer</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">Beispielhafte Auswahl aus unserem aktuellen Bestand. Verfügbarkeit und Ausstattung auf Anfrage.</p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">Ausgewählte Leasingrückläufer aus dem Bestand unseres Partners BIKE2FUTURE – professionell aufbereitet, mit 24 Monaten Garantie auf Akku und Motor. Preise inkl. MwSt., Verfügbarkeit tagesaktuell auf Anfrage.</p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {bikes.map((b) => (
@@ -110,10 +117,11 @@ const Mobilitaetsmanagement = () => {
                   </CardHeader>
                   <CardContent className="flex flex-col flex-1 gap-3 text-sm">
                     <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-primary" /> Zustand: Refurbished – Sehr gut</div>
-                    <div className="flex items-center gap-2"><BatteryCharging className="h-4 w-4 text-primary" /> Akku-Kapazität: {b.battery} ({b.range})</div>
+                    <div className="flex items-center gap-2"><BatteryCharging className="h-4 w-4 text-primary" /> Modelljahr {b.year} · Laufleistung {b.km}</div>
+                    <div className="text-muted-foreground line-through">UVP {b.uvp}</div>
                     <div className="flex items-baseline justify-between pt-2 border-t border-border">
                       <span className="text-2xl font-bold">{b.price}</span>
-                      <span className="font-semibold text-primary">−{b.saving} ggü. UVP</span>
+                      <span className="font-semibold text-primary">−{saving(b)} % ggü. UVP</span>
                     </div>
                     <Button className="mt-auto" onClick={() => { setForm((f) => ({ ...f, type: "Privatperson", message: `Ich interessiere mich für: ${b.name} (${b.cat}).` })); scrollTo("anfrage"); }}>
                       Unverbindlich anfragen
@@ -122,6 +130,9 @@ const Mobilitaetsmanagement = () => {
                 </Card>
               ))}
             </div>
+            <p className="text-center text-sm text-muted-foreground mt-10">
+              Weitere Modelle von Cube, Trek, KTM, Haibike, Bulls u. v. m. vermitteln wir auf Anfrage – auch als Gebrauchtrad-Leasing über den Arbeitgeber.
+            </p>
           </div>
         </section>
 
