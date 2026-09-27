@@ -7,6 +7,7 @@ const Footer = () => (
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <p>© {new Date().getFullYear()} Rasolution</p>
         <div className="flex items-center gap-6">
+          <Link to="/mobilitaetsmanagement" className="hover:text-foreground transition-colors">Mobilität</Link>
           <Link to="/impressum" className="hover:text-foreground transition-colors">Impressum</Link>
           <span className="inline-flex items-center gap-1.5">
             <Link to="/datenschutz" className="hover:text-foreground transition-colors">Datenschutz</Link>
