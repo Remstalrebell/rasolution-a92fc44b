@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Leistungen", href: "#services" },
   { label: "Marketing", href: "#marketing" },
   { label: "Warum wir", href: "#why" },
+  { label: "Mobilität", href: "/mobilitaetsmanagement" },
   { label: "Kontakt", href: "#contact" },
 ];
 
@@ -25,6 +26,8 @@ const Header = () => {
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
+    if (href.startsWith("/")) { navigate(href); return; }
+    if (window.location.pathname !== "/") { navigate("/" + href); return; }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -37,7 +40,7 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-[4.5rem]">
-        <a href="#" className="flex items-center" aria-label="Rasolution">
+        <a href="/" className="flex items-center" aria-label="Rasolution">
           <img src={logoUrl} alt="Rasolution – Fleetmanagement, E-Mobility, Digital, Security" className="h-10 max-h-10 w-auto object-contain bg-transparent" loading="eager" decoding="async" />
         </a>
 

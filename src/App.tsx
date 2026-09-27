@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import Mobilitaetsmanagement from "./pages/Mobilitaetsmanagement.tsx";
 import MarketingPage from "./pages/Marketing.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import AppLayout from "./layouts/AppLayout.tsx";
@@ -59,6 +60,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/marketing" element={<MarketingPage />} />
+            <Route path="/mobilitaetsmanagement" element={<Mobilitaetsmanagement />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/login" element={<Login />} />
