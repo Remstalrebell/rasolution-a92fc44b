@@ -1,4 +1,5 @@
 import RefurbishmentGuide from "@/components/RefurbishmentGuide";
+import TopAngebote from "@/components/TopAngebote";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -205,6 +206,8 @@ const Mobilitaetsmanagement = () => {
             </p>
           </div>
         </section>
+
+        <TopAngebote />
 
         {/* Produkt-Katalog Refurbished & E-Bikes */}
         <section id="produkt-katalog" className="py-20">
