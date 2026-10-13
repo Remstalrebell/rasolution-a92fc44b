@@ -1,3 +1,4 @@
+import RefurbishmentGuide from "@/components/RefurbishmentGuide";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -137,6 +138,7 @@ const Mobilitaetsmanagement = () => {
             </div>
           </div>
         </section>
+        <RefurbishmentGuide />
 
         {/* Ratgeber */}
         <section className="py-20">
