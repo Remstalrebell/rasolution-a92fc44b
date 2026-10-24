@@ -22,7 +22,6 @@ const Mobilitaetsmanagement = () => {
   const [form, setForm] = useState({ name: "", email: "", type: "Privatperson", message: "" });
 
   useEffect(() => {
-    document.title = "Mobilitätsmanagement & Refurbished E-Bikes | Rasolution";
     window.scrollTo(0, 0);
   }, []);
 

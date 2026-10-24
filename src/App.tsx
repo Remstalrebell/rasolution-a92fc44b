@@ -22,10 +22,12 @@ import Wartung from "./pages/Wartung.tsx";
 import AdminControl from "./pages/AdminControl.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
 import { useGAPageView } from "./hooks/useGAPageView";
+import { useRouteMeta } from "./hooks/useRouteMeta";
 
 const queryClient = new QueryClient();
 
 const GAPageViewTracker = () => {
+  useRouteMeta();
   useGAPageView();
   return null;
 };
