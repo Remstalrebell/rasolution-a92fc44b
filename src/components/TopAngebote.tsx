@@ -103,7 +103,7 @@ const TopAngebote = () => {
                   <p className="text-2xl font-bold text-primary">{eur(o.price)}</p>
                   <p className="text-xs text-muted-foreground">inkl. MwSt. · Ersparnis {pct(o)} %</p>
                 </div>
-                <Button variant="hero" className="w-full h-auto min-h-10 px-3 py-2 text-sm whitespace-normal text-center" onClick={() => ask(o)}>Jetzt anfragen & leasen</Button>
+                <Button variant="hero" className="w-full h-auto px-3 py-2.5 text-sm font-medium text-center whitespace-normal" onClick={() => ask(o)}>Jetzt anfragen & leasen</Button>
               </CardContent>
             </Card>
           ))}
