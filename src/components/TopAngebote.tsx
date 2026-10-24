@@ -7,14 +7,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Palette, Ruler, Gauge, ShieldCheck, Warehouse, ZoomIn } from "lucide-react";
-import img1 from "@/assets/bikes/bike-1.jpg.asset.json";
-import img2 from "@/assets/bikes/bike-2.jpg.asset.json";
-import img3 from "@/assets/bikes/bike-3.jpg.asset.json";
-import img4 from "@/assets/bikes/bike-4.jpg.asset.json";
-import img5 from "@/assets/bikes/bike-5.jpg.asset.json";
-import img6 from "@/assets/bikes/bike-6.jpg.asset.json";
-import img7 from "@/assets/bikes/bike-7.jpg.asset.json";
-import img8 from "@/assets/bikes/bike-8.jpg.asset.json";
+import img1 from "@/assets/bikes/bike-1.jpg";
+import img2 from "@/assets/bikes/bike-2.jpg";
+import img3 from "@/assets/bikes/bike-3.jpg";
+import img4 from "@/assets/bikes/bike-4.jpg";
+import img5 from "@/assets/bikes/bike-5.jpg";
+import img6 from "@/assets/bikes/bike-6.jpg";
+import img7 from "@/assets/bikes/bike-7.jpg";
+import img8 from "@/assets/bikes/bike-8.jpg";
 
 type Cat = "Trekking" | "City" | "EMTB";
 type Offer = {
@@ -23,14 +23,14 @@ type Offer = {
 };
 
 export const topOffers: Offer[] = [
-  { brand: "FLYER", model: "Goroc X 6.70 ELO", ref: "9065888", cat: "EMTB", catLabel: "E-MTB Fully", note: "Allroad-Vollausstattung mit FOX-Fahrwerk, Schutzblechen & Gepäckträger", color: "Grau", frame: "47 cm (Diamant)", km: 559, uvp: 6799, price: 4249, img: img1.url },
-  { brand: "ADVANCED EBIKE", model: "Reco One 10-Gang", ref: "9067687", cat: "Trekking", catLabel: "Trekking E-Bike", note: "Nachhaltiger Composite-Rahmen mit Komfort-Einstieg", color: "Türkis/Hellblau", frame: "54 cm", km: 243, uvp: 5347.68, price: 3349, img: img2.url },
-  { brand: "Kettler", model: "Scarpia FS3", ref: "9048219", cat: "EMTB", catLabel: "E-MTB Fully", note: "RockShox-Fahrwerk & Skinwall-Bereifung", color: "Schwarz", frame: "49 cm (Diamant)", km: 603, uvp: 5299, price: 3299, img: img3.url },
-  { brand: "Bulls", model: "Copperhead EVO 1", ref: "9061009", cat: "EMTB", catLabel: "E-MTB Hardtail", note: "Bosch-Antrieb & Tanwall-Offroad-Reifen", color: "Türkis/Mattgrün", frame: "48 cm (Diamant)", km: 151, uvp: 4287.62, price: 2699, img: img4.url },
-  { brand: "Stevens", model: "E-Simeto", ref: "9064104", cat: "Trekking", catLabel: "Trekking / Urban E-Bike", note: "Wartungsarmer Riemenantrieb & Front-Rack", color: "Weiß", frame: "XL (Diamant)", km: 1660, uvp: 4214, price: 2649, img: img5.url },
-  { brand: "Pegasus", model: "Strong Evo 5R", ref: "9064815", cat: "City", catLabel: "City / Urban", note: "Besonders stabiles XXL-/Lasten-Konzept mit Nabenschaltung", color: "Dunkelblau", frame: "60 cm (Herren)", km: 1020, uvp: 4100, price: 2549, img: img6.url },
-  { brand: "Trek", model: "Powerfly 5", ref: "9066475", cat: "EMTB", catLabel: "E-MTB Hardtail", note: "Sportliches Trail-Design mit RockShox-Federgabel", color: "Grau/Türkis", frame: "S (Diamant)", km: 417, uvp: 3660, price: 2299, img: img7.url },
-  { brand: "Victoria", model: "Cysalo 13", ref: "9061251", cat: "City", catLabel: "City / Urban", note: "Komfort-Tiefeinsteiger mit Mittelmotor & Gepäckträger", color: "Dunkelblau", frame: "56 cm (Wave)", km: 317, uvp: 2699, price: 1699, img: img8.url },
+  { brand: "FLYER", model: "Goroc X 6.70 ELO", ref: "9065888", cat: "EMTB", catLabel: "E-MTB Fully", note: "Allroad-Vollausstattung mit FOX-Fahrwerk, Schutzblechen & Gepäckträger", color: "Grau", frame: "47 cm (Diamant)", km: 559, uvp: 6799, price: 4249, img: img1 },
+  { brand: "ADVANCED EBIKE", model: "Reco One 10-Gang", ref: "9067687", cat: "Trekking", catLabel: "Trekking E-Bike", note: "Nachhaltiger Composite-Rahmen mit Komfort-Einstieg", color: "Türkis/Hellblau", frame: "54 cm", km: 243, uvp: 5347.68, price: 3349, img: img2 },
+  { brand: "Kettler", model: "Scarpia FS3", ref: "9048219", cat: "EMTB", catLabel: "E-MTB Fully", note: "RockShox-Fahrwerk & Skinwall-Bereifung", color: "Schwarz", frame: "49 cm (Diamant)", km: 603, uvp: 5299, price: 3299, img: img3 },
+  { brand: "Bulls", model: "Copperhead EVO 1", ref: "9061009", cat: "EMTB", catLabel: "E-MTB Hardtail", note: "Bosch-Antrieb & Tanwall-Offroad-Reifen", color: "Türkis/Mattgrün", frame: "48 cm (Diamant)", km: 151, uvp: 4287.62, price: 2699, img: img4 },
+  { brand: "Stevens", model: "E-Simeto", ref: "9064104", cat: "Trekking", catLabel: "Trekking / Urban E-Bike", note: "Wartungsarmer Riemenantrieb & Front-Rack", color: "Weiß", frame: "XL (Diamant)", km: 1660, uvp: 4214, price: 2649, img: img5 },
+  { brand: "Pegasus", model: "Strong Evo 5R", ref: "9064815", cat: "City", catLabel: "City / Urban", note: "Besonders stabiles XXL-/Lasten-Konzept mit Nabenschaltung", color: "Dunkelblau", frame: "60 cm (Herren)", km: 1020, uvp: 4100, price: 2549, img: img6 },
+  { brand: "Trek", model: "Powerfly 5", ref: "9066475", cat: "EMTB", catLabel: "E-MTB Hardtail", note: "Sportliches Trail-Design mit RockShox-Federgabel", color: "Grau/Türkis", frame: "S (Diamant)", km: 417, uvp: 3660, price: 2299, img: img7 },
+  { brand: "Victoria", model: "Cysalo 13", ref: "9061251", cat: "City", catLabel: "City / Urban", note: "Komfort-Tiefeinsteiger mit Mittelmotor & Gepäckträger", color: "Dunkelblau", frame: "56 cm (Wave)", km: 317, uvp: 2699, price: 1699, img: img8 },
 ];
 
 const filters: { key: "all" | Cat; label: string }[] = [
@@ -103,7 +103,7 @@ const TopAngebote = () => {
                   <p className="text-2xl font-bold text-primary">{eur(o.price)}</p>
                   <p className="text-xs text-muted-foreground">inkl. MwSt. · Ersparnis {pct(o)} %</p>
                 </div>
-                <Button variant="hero" className="w-full" onClick={() => ask(o)}>Verfügbarkeit & Leasing anfragen</Button>
+                <Button variant="hero" className="w-full h-auto min-h-10 px-3 py-2 text-sm whitespace-normal text-center" onClick={() => ask(o)}>Jetzt anfragen & leasen</Button>
               </CardContent>
             </Card>
           ))}
