@@ -16,7 +16,7 @@ export const routeMeta: Record<string, Meta> = {
   },
   "/mobilitaetsmanagement": {
     title: "Mobilitätsmanagement & Refurbished E-Bikes | Rasolution",
-    description: "Geprüfte Leasingrückläufer und Refurbished E-Bikes bis zu 40 % unter UVP, Ratgeber zu Diensträdern und der 0,25 %-Regel sowie Mobilitätskonzepte für Unternehmen.",
+    description: "Geprüfte Leasingrückläufer und Refurbished E-Bikes deutlich unter UVP, Ratgeber zu Diensträdern und der 0,25 %-Regel sowie Mobilitätskonzepte für Unternehmen.",
   },
   "/impressum": {
     title: "Impressum | Rasolution",
