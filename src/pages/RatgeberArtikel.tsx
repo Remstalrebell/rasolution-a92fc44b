@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft, Clock, Lightbulb } from "lucide-react";
 import { articles, getArticle } from "@/data/ratgeber";
 import NotFound from "./NotFound";
@@ -57,14 +56,14 @@ const RatgeberArtikel = () => {
 
           <section className="mt-14">
             <h2 className="text-2xl font-semibold mb-4">Häufige Fragen</h2>
-            <Accordion type="single" collapsible>
-              {a.faq.map((f, i) => (
-                <AccordionItem key={i} value={`f${i}`}>
-                  <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
-                  <AccordionContent className="leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
-                </AccordionItem>
+            <div className="space-y-6">
+              {a.faq.map((f) => (
+                <div key={f.q} className="border-b border-border pb-5">
+                  <h3 className="text-lg font-semibold mb-2">{f.q}</h3>
+                  <p className="leading-relaxed text-muted-foreground">{f.a}</p>
+                </div>
               ))}
-            </Accordion>
+            </div>
           </section>
 
           <div className="mt-14 rounded-2xl border bg-card p-8 text-center">

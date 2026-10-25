@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Mobilitaetsmanagement from "./pages/Mobilitaetsmanagement.tsx";
+import Ratgeber from "./pages/Ratgeber.tsx";
+import RatgeberArtikel from "./pages/RatgeberArtikel.tsx";
 import MarketingPage from "./pages/Marketing.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import AppLayout from "./layouts/AppLayout.tsx";
@@ -63,6 +65,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/marketing" element={<MarketingPage />} />
             <Route path="/mobilitaetsmanagement" element={<Mobilitaetsmanagement />} />
+            <Route path="/ratgeber" element={<Ratgeber />} />
+            <Route path="/ratgeber/:slug" element={<RatgeberArtikel />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/login" element={<Login />} />

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { getArticle } from "@/data/ratgeber";
 
 const SITE = "https://rasolution.io";
 
@@ -18,6 +19,10 @@ export const routeMeta: Record<string, Meta> = {
     title: "Mobilitätsmanagement & Refurbished E-Bikes | Rasolution",
     description: "Geprüfte Leasingrückläufer und Refurbished E-Bikes deutlich unter UVP, Ratgeber zu Diensträdern und der 0,25 %-Regel sowie Mobilitätskonzepte für Unternehmen.",
   },
+  "/ratgeber": {
+    title: "Ratgeber Fuhrpark & Mobilität | Rasolution",
+    description: "Fachartikel zu Dienstrad-Steuervorteilen, Refurbished E-Bikes, TCO im Fuhrparkmanagement und E-Bike-Akkus – praxisnah für Unternehmen.",
+  },
   "/impressum": {
     title: "Impressum | Rasolution",
     description: "Impressum und Anbieterkennzeichnung von Rasolution, Schorndorf – Angaben gemäß § 5 DDG.",
@@ -34,6 +39,10 @@ const fallback: Meta = { title: "Rasolution", description: routeMeta["/"].descri
 
 export const getRouteMeta = (path: string): Meta => {
   if (routeMeta[path]) return routeMeta[path];
+  if (path.startsWith("/ratgeber/")) {
+    const a = getArticle(path.slice("/ratgeber/".length));
+    if (a) return { title: a.metaTitle, description: a.description };
+  }
   if (path.startsWith("/app")) return { title: "Dashboard | Rasolution", description: fallback.description, noindex: true };
   return fallback;
 };
