@@ -7,9 +7,10 @@ import logoUrl from "@/assets/rasolution-logo.png";
 const navLinks = [
   { label: "Über uns", href: "#about" },
   { label: "Leistungen", href: "#services" },
-  { label: "Marketing", href: "#marketing" },
+  { label: "Marketing", href: "/marketing" },
   { label: "Warum wir", href: "#why" },
   { label: "Mobilität", href: "/mobilitaetsmanagement" },
+  { label: "Ratgeber", href: "/ratgeber" },
   { label: "Kontakt", href: "#contact" },
 ];
 
@@ -55,9 +56,6 @@ const Header = () => {
               {l.label}
             </button>
           ))}
-          <Button variant="outline" size="sm" onClick={() => navigate("/app")}>
-            Dashboard
-          </Button>
           <Button variant="hero" size="lg" onClick={() => handleNav("#contact")}>
             Erstgespräch vereinbaren
           </Button>
@@ -86,9 +84,6 @@ const Header = () => {
                 {l.label}
               </button>
             ))}
-            <Button variant="outline" size="sm" onClick={() => navigate("/app")}>
-              Dashboard
-            </Button>
             <Button variant="hero" size="lg" onClick={() => handleNav("#contact")} className="mt-2">
               Erstgespräch vereinbaren
             </Button>
