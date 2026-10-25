@@ -137,8 +137,8 @@ export const articles: Article[] = [
       {
         h2: "Was sind Refurbished E-Bikes?",
         p: [
-          "Ein großer Teil hochwertiger E-Bikes wird heute über Dienstradprogramme geleast. Nach Ablauf der meist 36-monatigen Laufzeit kommen diese Räder zurück – häufig mit vergleichsweise geringer Laufleistung, regelmäßiger Wartung und lückenloser Versicherung während der Nutzung. Spezialisierte Aufbereiter wie unser Partner BIKE2FUTURE prüfen diese Räder, setzen sie instand und bringen sie mit Prüfprotokoll erneut in den Markt.",
-          "Im Unterschied zum privaten Gebrauchtkauf ist der Zustand dokumentiert und nachvollziehbar. Auf Akku und Motor – die teuersten Komponenten – gewährt BIKE2FUTURE eine erweiterte Garantie von 24 Monaten.",
+          "Ein großer Teil hochwertiger E-Bikes wird heute über Dienstradprogramme geleast. Nach Ablauf der meist 36-monatigen Laufzeit kommen diese Räder zurück – häufig mit vergleichsweise geringer Laufleistung, regelmäßiger Wartung und lückenloser Versicherung während der Nutzung. Spezialisierte Aufbereiter aus unserem zertifizierten Refurbishment-Partnernetzwerk prüfen diese Räder, setzen sie instand und bringen sie mit Prüfprotokoll erneut in den Markt.",
+          "Im Unterschied zum privaten Gebrauchtkauf ist der Zustand dokumentiert und nachvollziehbar. Sie erhalten geprüfte Qualität mit 12 Monaten gesetzlicher Händler-Gewährleistung auf geprüfte Gebrauchtware.",
         ],
       },
       {
@@ -197,7 +197,7 @@ export const articles: Article[] = [
         h2: "Worauf Unternehmen beim Einkauf achten sollten",
         list: [
           "Prüfprotokoll und dokumentierte Akku-Restkapazität anfordern",
-          "Garantie auf Akku und Motor schriftlich festhalten",
+          "Gewährleistungsbedingungen schriftlich festhalten",
           "Rahmengrößen passend zu den Nutzenden auswählen",
           "Wartungsintervalle und einen regionalen Servicepartner einplanen",
           "Versicherung gegen Diebstahl und Beschädigung abschließen",
@@ -208,7 +208,7 @@ export const articles: Article[] = [
       { q: "Sind Refurbished E-Bikes genauso sicher wie neue Räder?", a: "Wenn sie professionell aufbereitet und geprüft wurden, ja. Entscheidend sind die dokumentierte Prüfung von Rahmen, Bremsen und Elektronik sowie der Austausch verschlissener Teile." },
       { q: "Wie alt sind die Räder typischerweise?", a: "Die meisten Leasingrückläufer sind etwa drei Jahre alt, da Dienstrad-Leasingverträge üblicherweise 36 Monate laufen." },
       { q: "Können Refurbished E-Bikes im Dienstrad-Leasing genutzt werden?", a: "Ja, viele Leasinganbieter akzeptieren inzwischen auch gebrauchte Räder von zertifizierten Händlern. Wir klären das gern für Ihr konkretes Programm." },
-      { q: "Wie viele Räder kann Rasolution liefern?", a: "Über unseren Partner haben wir Zugriff auf einen Bestand von mehr als 1.200 geprüften E-Bikes. So sind auch einheitliche Modelle für ganze Teams möglich." },
+      { q: "Wie viele Räder kann Rasolution liefern?", a: "Über unser zertifiziertes Refurbishment-Partnernetzwerk haben wir Zugriff auf einen Bestand von mehr als 1.200 geprüften E-Bikes. So sind auch einheitliche Modelle für ganze Teams möglich." },
     ],
   },
   {
@@ -388,7 +388,7 @@ export const articles: Article[] = [
       {
         h2: "Was der SoH beim Kauf gebrauchter E-Bikes bedeutet",
         p: [
-          "Beim Kauf eines Refurbished E-Bikes ist der dokumentierte Akkuzustand eines der wichtigsten Kriterien. Ein seriöser Anbieter misst die Restkapazität und tauscht Akkus mit zu geringem SoH aus. Achten Sie zusätzlich auf eine Garantie auf Akku und Motor – bei unserem Partner BIKE2FUTURE beträgt sie 24 Monate.",
+          "Beim Kauf eines Refurbished E-Bikes ist der dokumentierte Akkuzustand eines der wichtigsten Kriterien. Ein seriöser Anbieter misst die Restkapazität und tauscht Akkus mit zu geringem SoH aus. Achten Sie zusätzlich auf eine klar geregelte Händler-Gewährleistung – bei Rädern aus unserem zertifizierten Refurbishment-Partnernetzwerk gelten 12 Monate gesetzliche Gewährleistung auf geprüfte Gebrauchtware.",
         ],
       },
     ],
