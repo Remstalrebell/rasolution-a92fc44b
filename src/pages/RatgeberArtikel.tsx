@@ -10,7 +10,7 @@ import NotFound from "./NotFound";
 const RatgeberArtikel = () => {
   const { slug = "" } = useParams();
   const a = getArticle(slug);
-  useEffect(() => window.scrollTo(0, 0), [slug]);
+  useEffect(() => { window.scrollTo(0, 0); }, [slug]);
   if (!a) return <NotFound />;
   const others = articles.filter((o) => o.slug !== a.slug);
 
