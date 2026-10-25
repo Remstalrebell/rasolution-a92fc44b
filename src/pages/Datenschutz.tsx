@@ -91,28 +91,38 @@ const Datenschutz = () => (
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-gray-900">10. Externe Videodienste (z. B. YouTube)</h2>
+          <h2 className="text-xl font-semibold mb-3 text-gray-900">10. Google AdSense</h2>
+          <p>
+            Diese Website nutzt Google AdSense, einen Dienst zur Einbindung von Werbeanzeigen der <strong>Google Ireland Limited</strong> (Gordon House, Barrow Street, Dublin 4, Irland). Google AdSense verwendet Cookies und sog. Web Beacons (unsichtbare Grafiken), um relevante Anzeigen auszuspielen und deren Wirksamkeit zu messen. Dabei können Informationen über Ihre Nutzung dieser Website (einschließlich Ihrer IP-Adresse) an Server von Google übertragen und dort gespeichert werden; eine Übermittlung in die USA ist dabei nicht auszuschließen. Google ist nach dem EU-US Data Privacy Framework zertifiziert.
+          </p>
+          <p className="mt-3">
+            Personalisierte Anzeigen werden nur ausgespielt, wenn Sie über unseren Cookie-Banner in die Kategorie „Marketing" eingewilligt haben (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TTDSG). Ohne Einwilligung können nicht personalisierte Anzeigen angezeigt werden. Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen widerrufen und personalisierte Werbung von Google zusätzlich hier deaktivieren: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="underline text-blue-700">https://adssettings.google.com</a>. Weitere Informationen: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="underline text-blue-700">Wie Google Werbung nutzt</a> · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline text-blue-700">Google Datenschutzerklärung</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold mb-3 text-gray-900">11. Externe Videodienste (z. B. YouTube)</h2>
           <p>
             Aktuell binden wir keine externen Videos direkt ein. Sollten wir künftig Inhalte von <strong>YouTube</strong> (Google Ireland Ltd.) oder vergleichbaren Diensten einbetten, geschieht dies grundsätzlich im erweiterten Datenschutzmodus („youtube-nocookie.com"). Beim Abspielen werden technisch zwingend Daten (u. a. IP-Adresse, Geräteinformationen) an den Anbieter übermittelt. Eine Einbettung erfolgt erst nach aktiver Einwilligung über den Cookie-Banner (Kategorie „Marketing"). Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline text-blue-700">Google/YouTube Datenschutz</a>.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-gray-900">11. Cookies</h2>
+          <h2 className="text-xl font-semibold mb-3 text-gray-900">12. Cookies</h2>
           <p>
             Diese Website verwendet Cookies in technisch notwendigem Umfang sowie – nach Ihrer Einwilligung – für Analyse- und Marketingzwecke (siehe oben). Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen anpassen oder widerrufen.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-gray-900">12. Ihre Rechte</h2>
+          <h2 className="text-xl font-semibold mb-3 text-gray-900">13. Ihre Rechte</h2>
           <p>
             Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an die oben genannte verantwortliche Stelle wenden. Ferner steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3 text-gray-900">13. SSL-/TLS-Verschlüsselung</h2>
+          <h2 className="text-xl font-semibold mb-3 text-gray-900">14. SSL-/TLS-Verschlüsselung</h2>
           <p>
             Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
           </p>
