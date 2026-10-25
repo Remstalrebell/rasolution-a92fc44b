@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Palette, Ruler, Gauge, ShieldCheck, Warehouse, ZoomIn } from "lucide-react";
+import { Palette, Ruler, Gauge, ShieldCheck, Warehouse, ZoomIn, Clock } from "lucide-react";
 import img1 from "@/assets/bikes/bike-1.jpg";
 import img2 from "@/assets/bikes/bike-2.jpg";
 import img3 from "@/assets/bikes/bike-3.jpg";
@@ -15,11 +15,13 @@ import img5 from "@/assets/bikes/bike-5.jpg";
 import img6 from "@/assets/bikes/bike-6.jpg";
 import img7 from "@/assets/bikes/bike-7.jpg";
 import img8 from "@/assets/bikes/bike-8.jpg";
+import Gesamtkatalog from "@/components/Gesamtkatalog";
 
 type Cat = "Trekking" | "City" | "EMTB";
 type Offer = {
   brand: string; model: string; ref: string; cat: Cat; catLabel: string; note: string;
   color: string; frame: string; km: number; uvp: number; price: number; img: string;
+  status?: string;
 };
 
 export const topOffers: Offer[] = [
@@ -29,7 +31,7 @@ export const topOffers: Offer[] = [
   { brand: "Bulls", model: "Copperhead EVO 1", ref: "9061009", cat: "EMTB", catLabel: "E-MTB Hardtail", note: "Bosch-Antrieb & Tanwall-Offroad-Reifen", color: "Türkis/Mattgrün", frame: "48 cm (Diamant)", km: 151, uvp: 4287.62, price: 2699, img: img4 },
   { brand: "Stevens", model: "E-Simeto", ref: "9064104", cat: "Trekking", catLabel: "Trekking / Urban E-Bike", note: "Wartungsarmer Riemenantrieb & Front-Rack", color: "Weiß", frame: "XL (Diamant)", km: 1660, uvp: 4214, price: 2649, img: img5 },
   { brand: "Pegasus", model: "Strong Evo 5R", ref: "9064815", cat: "City", catLabel: "City / Urban", note: "Besonders stabiles XXL-/Lasten-Konzept mit Nabenschaltung", color: "Dunkelblau", frame: "60 cm (Herren)", km: 1020, uvp: 4100, price: 2549, img: img6 },
-  { brand: "Trek", model: "Powerfly 5", ref: "9066475", cat: "EMTB", catLabel: "E-MTB Hardtail", note: "Sportliches Trail-Design mit RockShox-Federgabel", color: "Grau/Türkis", frame: "S (Diamant)", km: 417, uvp: 3660, price: 2299, img: img7 },
+  { brand: "Trek", model: "Powerfly 5", ref: "9066475", cat: "EMTB", catLabel: "E-MTB Hardtail", note: "Sportliches Trail-Design mit RockShox-Federgabel", color: "Grau/Türkis", frame: "S (Diamant)", km: 417, uvp: 3660, price: 2299, img: img7, status: "Aktuell reserviert – Vergleichsmodell anfragen" },
   { brand: "Victoria", model: "Cysalo 13", ref: "9061251", cat: "City", catLabel: "City / Urban", note: "Komfort-Tiefeinsteiger mit Mittelmotor & Gepäckträger", color: "Dunkelblau", frame: "56 cm (Wave)", km: 317, uvp: 2699, price: 1699, img: img8 },
 ];
 
@@ -50,10 +52,11 @@ const TopAngebote = () => {
   const [form, setForm] = useState({ subject: "", name: "", email: "", message: "" });
   const shown = filter === "all" ? topOffers : topOffers.filter((o) => o.cat === filter);
 
-  const ask = (o: Offer) => {
-    setForm((f) => ({ ...f, subject: `${o.brand} ${o.model} - Ref-ID: #${o.ref} - ${eur(o.price)}` }));
+  const askSubject = (subject: string) => {
+    setForm((f) => ({ ...f, subject }));
     setOpen(true);
   };
+  const ask = (o: Offer) => askSubject(`${o.brand} ${o.model} - Ref-ID: #${o.ref} - ${eur(o.price)}`);
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const body = `Name: ${form.name}\nE-Mail: ${form.email}\n\nNachricht:\n${form.message}`;
@@ -93,6 +96,7 @@ const TopAngebote = () => {
                 </div>
                 <p className="text-sm text-muted-foreground">{o.note}</p>
                 <Badge className="w-fit gap-1 bg-success text-success-foreground hover:bg-success"><ShieldCheck size={12} /> Zustand: Exzellent</Badge>
+                {o.status && <Badge variant="outline" className="w-fit gap-1 border-accent text-accent-foreground bg-accent/15 whitespace-normal text-left"><Clock size={12} className="shrink-0" /> {o.status}</Badge>}
                 <ul className="space-y-1 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2"><Palette size={14} /> {o.color}</li>
                   <li className="flex items-center gap-2"><Ruler size={14} /> {o.frame}</li>
@@ -108,6 +112,8 @@ const TopAngebote = () => {
             </Card>
           ))}
         </div>
+
+        <Gesamtkatalog onAsk={askSubject} />
 
         <div className="mt-12 rounded-2xl border-2 border-primary/30 bg-card p-8 text-center shadow-lg">
           <Warehouse className="mx-auto mb-3 text-primary" size={32} />
