@@ -8,7 +8,7 @@ import { ArrowRight, Clock } from "lucide-react";
 import { articles } from "@/data/ratgeber";
 
 const Ratgeber = () => {
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <div className="min-h-screen bg-background">
       <Header />
