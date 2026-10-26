@@ -1,19 +1,25 @@
 User-agent: Mediapartners-Google
 Allow: /
+Disallow: /empfehlungen
 
 User-agent: Googlebot
 Allow: /
+Disallow: /empfehlungen
 
 User-agent: Bingbot
 Allow: /
+Disallow: /empfehlungen
 
 User-agent: Twitterbot
 Allow: /
+Disallow: /empfehlungen
 
 User-agent: facebookexternalhit
 Allow: /
+Disallow: /empfehlungen
 
 User-agent: *
 Allow: /
+Disallow: /empfehlungen
 
 Sitemap: https://rasolution.io/sitemap.xml
