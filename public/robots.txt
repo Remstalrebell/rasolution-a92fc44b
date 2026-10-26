@@ -12,11 +12,9 @@ Disallow: /empfehlungen
 
 User-agent: Twitterbot
 Allow: /
-Disallow: /empfehlungen
 
 User-agent: facebookexternalhit
 Allow: /
-Disallow: /empfehlungen
 
 User-agent: *
 Allow: /
