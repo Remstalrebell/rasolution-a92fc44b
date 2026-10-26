@@ -61,6 +61,12 @@ export default {
           DEFAULT: "hsl(var(--bordeaux))",
           foreground: "hsl(var(--bordeaux-foreground))",
         },
+        hero: {
+          DEFAULT: "hsl(var(--hero-bg) / <alpha-value>)",
+          foreground: "hsl(var(--hero-foreground) / <alpha-value>)",
+          muted: "hsl(var(--hero-muted) / <alpha-value>)",
+          accent: "hsl(var(--hero-accent) / <alpha-value>)",
+        },
         slate_dark: "hsl(var(--slate-dark))",
         slate_light: "hsl(var(--slate-light))",
         sidebar: {

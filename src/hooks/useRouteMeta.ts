@@ -33,6 +33,11 @@ export const routeMeta: Record<string, Meta> = {
   },
   "/login": { title: "Login | Rasolution", description: "Interner Login-Bereich von Rasolution.", noindex: true },
   "/wartung": { title: "Wartungsarbeiten | Rasolution", description: "Hier entsteht Rasolution. Wir optimieren gerade unsere Systeme für Sie.", noindex: true },
+  "/empfehlungen": {
+    title: "Rasolution Partner-Hub: Empfohlene Tools, Business-Finanzen & Digitale Einkommenssysteme",
+    description: "Kuratierte Partner-Empfehlungen von Rasolution: Digitales Business, KI-Tools, Business-Kreditkarten, Starlink und Lifestyle-Deals.",
+    noindex: true,
+  },
 };
 
 const fallback: Meta = { title: "Rasolution", description: routeMeta["/"].description, noindex: true };

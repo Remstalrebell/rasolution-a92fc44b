@@ -22,6 +22,7 @@ import Login from "./pages/Login.tsx";
 import AuthGuard from "./components/AuthGuard.tsx";
 import Wartung from "./pages/Wartung.tsx";
 import AdminControl from "./pages/AdminControl.tsx";
+import Empfehlungen from "./pages/Empfehlungen.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
 import { useGAPageView } from "./hooks/useGAPageView";
 import { useRouteMeta } from "./hooks/useRouteMeta";
@@ -72,6 +73,8 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/wartung" element={<Wartung />} />
             <Route path="/admin-control" element={<AdminControl />} />
+            {/* Versteckter Partner-Hub für Social Media – nicht im Menü/Footer/Sitemap, noindex */}
+            <Route path="/empfehlungen" element={<Empfehlungen />} />
 
             {/* App Shell mit Sidebar – geschützt */}
             <Route path="/app" element={<AuthGuard><AppLayout /></AuthGuard>}>
