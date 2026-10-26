@@ -9,7 +9,7 @@ const Callout = ({ children }: { children: React.ReactNode }) => (
 
 const RefurbishmentGuide = () => (
   <section className="py-20">
-    <article className="container max-w-[68ch] text-base leading-[1.8] text-foreground/90 [&_h2]:mb-6 [&_h2]:text-foreground [&_h3]:mt-8 [&_h3]:mb-2 [&_h3]:text-lg [&_p]:mb-5 [&_ul]:mb-5 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6">
+    <article className="container max-w-3xl mx-auto text-base leading-relaxed text-foreground/80 [&_h2]:mb-6 [&_h2]:text-foreground [&_h3]:mt-8 [&_h3]:mb-2 [&_h3]:text-lg [&_h3]:text-foreground [&_p]:mb-5 [&_ul]:mb-5 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6">
       <h2>Professionelles E-Bike Refurbishment: Transparenz &amp; Qualität für Ihr Dienstfahrrad</h2>
       <p>
         Ein Leasingrückläufer ist kein „gebrauchtes Fahrrad" im klassischen Sinne. Die meisten Räder

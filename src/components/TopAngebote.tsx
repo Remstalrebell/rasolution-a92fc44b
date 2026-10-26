@@ -67,8 +67,8 @@ const TopAngebote = () => {
   return (
     <section id="top-angebote" className="py-20 bg-muted/40">
       <div className="container">
-        <div className="text-center mb-10">
-          <h2>Aktuelle Top-Angebote: Geprüfte Leasingrückläufer & Refurbished E-Bikes</h2>
+        <div className="text-center mb-10 max-w-4xl mx-auto">
+          <h2 className="[text-wrap:balance]">Aktuelle Top-Angebote:<br className="hidden sm:block" /> Geprüfte Leasingrückläufer & Refurbished E&#8209;Bikes</h2>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">8 ausgewählte Fahrzeuge aus unserem Bestand – alle Preise inkl. MwSt.</p>
         </div>
 
