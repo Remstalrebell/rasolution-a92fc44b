@@ -427,4 +427,12 @@ const baseArticles: Article[] = [
   },
 ];
 
+const newArticles: Article[] = [tcoAnalyse, csrdScope3, ladeinfrastruktur, uvvPruefung, poolfahrzeuge, leasingruecklaeufer];
+
+export const articles: Article[] = [
+  { ...baseArticles[0], tool: "ersparnisrechner" },
+  ...baseArticles.slice(1),
+  ...newArticles,
+];
+
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
