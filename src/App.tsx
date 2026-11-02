@@ -39,7 +39,7 @@ const MAINTENANCE_KEY = "rasolution_maintenance";
 
 const MaintenanceGate = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
-  const isMaintenance = localStorage.getItem(MAINTENANCE_KEY) === "true";
+  const isMaintenance = typeof window !== "undefined" && window.localStorage.getItem(MAINTENANCE_KEY) === "true";
 
   // Always allow access to admin control & maintenance page itself
   if (location.pathname === "/admin-control" || location.pathname === "/wartung") {
@@ -53,47 +53,54 @@ const MaintenanceGate = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+/** Everything inside the router – shared by the browser app and the build-time pre-renderer. */
+export const AppRoutes = () => (
+  <>
+    <GAPageViewTracker />
+    <CookieConsent />
+    <MaintenanceGate>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/marketing" element={<MarketingPage />} />
+        <Route path="/mobilitaetsmanagement" element={<Mobilitaetsmanagement />} />
+        <Route path="/ratgeber" element={<Ratgeber />} />
+        <Route path="/ratgeber/:slug" element={<RatgeberArtikel />} />
+        <Route path="/impressum" element={<Impressum />} />
+        <Route path="/datenschutz" element={<Datenschutz />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/wartung" element={<Wartung />} />
+        <Route path="/admin-control" element={<AdminControl />} />
+        {/* Versteckter Partner-Hub für Social Media – nicht im Menü/Footer/Sitemap, noindex */}
+        <Route path="/empfehlungen" element={<Empfehlungen />} />
+
+        {/* App Shell mit Sidebar – geschützt */}
+        <Route path="/app" element={<AuthGuard><AppLayout /></AuthGuard>}>
+          <Route index element={<Dashboard />} />
+          <Route path="projekte" element={<Projekte />} />
+          <Route path="kunden" element={<Kunden />} />
+          <Route path="analysen" element={<Analysen />} />
+          <Route path="einstellungen" element={<Einstellungen />} />
+          <Route path="marketing-internal" element={<MarketingInternal />} />
+        </Route>
+
+        {/* Stealth-Link-System V2.0 - Industrial Alpha Protocol */}
+        <Route path="/vidiq" element={<Navigate to="https://vidiq.com/features/keyword-tools/?afmc=ralfiverse&a=99094" replace />} />
+        <Route path="/emergent" element={<Navigate to="https://app.emergent.sh/register?ref=ceor250178" replace />} />
+        <Route path="/qonto" element={<Navigate to="https://qonto.com/r/loa54f" replace />} />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </MaintenanceGate>
+  </>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <GAPageViewTracker />
-        <CookieConsent />
-        <MaintenanceGate>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/marketing" element={<MarketingPage />} />
-            <Route path="/mobilitaetsmanagement" element={<Mobilitaetsmanagement />} />
-            <Route path="/ratgeber" element={<Ratgeber />} />
-            <Route path="/ratgeber/:slug" element={<RatgeberArtikel />} />
-            <Route path="/impressum" element={<Impressum />} />
-            <Route path="/datenschutz" element={<Datenschutz />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/wartung" element={<Wartung />} />
-            <Route path="/admin-control" element={<AdminControl />} />
-            {/* Versteckter Partner-Hub für Social Media – nicht im Menü/Footer/Sitemap, noindex */}
-            <Route path="/empfehlungen" element={<Empfehlungen />} />
-
-            {/* App Shell mit Sidebar – geschützt */}
-            <Route path="/app" element={<AuthGuard><AppLayout /></AuthGuard>}>
-              <Route index element={<Dashboard />} />
-              <Route path="projekte" element={<Projekte />} />
-              <Route path="kunden" element={<Kunden />} />
-              <Route path="analysen" element={<Analysen />} />
-              <Route path="einstellungen" element={<Einstellungen />} />
-              <Route path="marketing-internal" element={<MarketingInternal />} />
-            </Route>
-
-            {/* Stealth-Link-System V2.0 - Industrial Alpha Protocol */}
-            <Route path="/vidiq" element={<Navigate to="https://vidiq.com/features/keyword-tools/?afmc=ralfiverse&a=99094" replace />} />
-            <Route path="/emergent" element={<Navigate to="https://app.emergent.sh/register?ref=ceor250178" replace />} />
-            <Route path="/qonto" element={<Navigate to="https://qonto.com/r/loa54f" replace />} />
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </MaintenanceGate>
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
