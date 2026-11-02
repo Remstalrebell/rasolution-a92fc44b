@@ -1,5 +1,6 @@
 import RefurbishmentGuide from "@/components/RefurbishmentGuide";
 import TopAngebote from "@/components/TopAngebote";
+import Ersparnisrechner from "@/components/Ersparnisrechner";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -82,6 +83,8 @@ const Mobilitaetsmanagement = () => {
             </article>
           </div>
         </section>
+
+        <Ersparnisrechner />
 
         <TopAngebote />
 
