@@ -1,8 +1,21 @@
+import tcoAnalyse from "./ratgeber-artikel/tco-analyse-fuhrpark-gesamtkosten-senken";
+import csrdScope3 from "./ratgeber-artikel/csrd-und-scope-3-emissionen-im-mobilitaetsmanagement";
+import ladeinfrastruktur from "./ratgeber-artikel/ladeinfrastruktur-fuer-ebikes-und-eflotten-im-unternehmen";
+import uvvPruefung from "./ratgeber-artikel/uvv-pruefung-dienstfahrzeuge-und-dienstraeder-dguv";
+import poolfahrzeuge from "./ratgeber-artikel/poolfahrzeuge-vs-personenbezogene-dienstwagen";
+import leasingruecklaeufer from "./ratgeber-artikel/leasingruecklaeufer-kaufen-worauf-unternehmen-achten-muessen";
+
+/**
+ * Text fields may contain inline links in the form [Linktext](/pfad) –
+ * they are rendered as internal links (see RichText component).
+ */
 export type Section = {
   h2: string;
   p?: string[];
   list?: string[];
   sub?: { h3: string; p: string[] }[];
+  /** Praxistabelle: rows must have the same number of cells as head */
+  table?: { caption: string; head: string[]; rows: string[][] };
   example?: { title: string; text: string[] };
 };
 
@@ -14,12 +27,25 @@ export type Article = {
   teaser: string;
   category: string;
   readMin: number;
+  /** ISO date (YYYY-MM-DD) of the last editorial update */
+  updated?: string;
   intro: string[];
   sections: Section[];
   faq: { q: string; a: string }[];
+  /** Slugs of related articles shown below the text */
+  related?: string[];
+  /** Interactive tool embedded after the intro */
+  tool?: "ersparnisrechner";
 };
 
-export const articles: Article[] = [
+export const slugifyHeading = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+const baseArticles: Article[] = [
   {
     slug: "dienstwagen-vs-dienstrad-steuervorteile",
     title: "Dienstwagen vs. Dienstrad: Die 0,25%-Regelung & Steuervorteile im Fuhrpark 2026",
