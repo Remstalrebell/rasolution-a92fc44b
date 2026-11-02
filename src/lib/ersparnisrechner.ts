@@ -74,9 +74,8 @@ const jahresSteuer = (bruttoJahr: number, klasse: Steuerklasse) => {
 export const abgabenAufVorteil = (bruttoMonat: number, klasse: Steuerklasse, vorteilMonat: number) => {
   const base = Math.max(0, bruttoMonat);
   const steuer = (jahresSteuer((base + vorteilMonat) * 12, klasse) - jahresSteuer(base * 12, klasse)) / 12;
-  const soliFrei = true; // Soli fällt für die allermeisten Arbeitnehmenden nicht mehr an
   const kvAnteil = Math.max(0, Math.min(base + vorteilMonat, BBG_KV_MONAT) - Math.min(base, BBG_KV_MONAT));
   const rvAnteil = Math.max(0, Math.min(base + vorteilMonat, BBG_RV_MONAT) - Math.min(base, BBG_RV_MONAT));
   const sv = kvAnteil * SV_KV_PV + rvAnteil * SV_RV_AV;
-  return { steuer: Math.round(steuer * 100) / 100, sv: Math.round(sv * 100) / 100, total: Math.round((steuer + sv) * 100) / 100, soliFrei };
+  return { steuer: Math.round(steuer * 100) / 100, sv: Math.round(sv * 100) / 100, total: Math.round((steuer + sv) * 100) / 100 };
 };
