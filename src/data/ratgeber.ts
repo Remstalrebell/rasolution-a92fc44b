@@ -1,10 +1,3 @@
-import tcoAnalyse from "./ratgeber-artikel/tco-analyse-fuhrpark-gesamtkosten-senken";
-import csrdScope3 from "./ratgeber-artikel/csrd-und-scope-3-emissionen-im-mobilitaetsmanagement";
-import ladeinfrastruktur from "./ratgeber-artikel/ladeinfrastruktur-fuer-ebikes-und-eflotten-im-unternehmen";
-import uvvPruefung from "./ratgeber-artikel/uvv-pruefung-dienstfahrzeuge-und-dienstraeder-dguv";
-import poolfahrzeuge from "./ratgeber-artikel/poolfahrzeuge-vs-personenbezogene-dienstwagen";
-import leasingruecklaeufer from "./ratgeber-artikel/leasingruecklaeufer-kaufen-worauf-unternehmen-achten-muessen";
-
 /**
  * Text fields may contain inline links in the form [Linktext](/pfad) –
  * they are rendered as internal links (see RichText component).
@@ -427,12 +420,9 @@ const baseArticles: Article[] = [
   },
 ];
 
-const newArticles: Article[] = [tcoAnalyse, csrdScope3, ladeinfrastruktur, uvvPruefung, poolfahrzeuge, leasingruecklaeufer];
-
 export const articles: Article[] = [
   { ...baseArticles[0], tool: "ersparnisrechner" },
   ...baseArticles.slice(1),
-  ...newArticles,
 ];
 
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
