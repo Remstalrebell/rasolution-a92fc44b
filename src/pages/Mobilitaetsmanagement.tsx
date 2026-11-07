@@ -2,6 +2,7 @@ import RefurbishmentGuide from "@/components/RefurbishmentGuide";
 import TopAngebote from "@/components/TopAngebote";
 import Ersparnisrechner from "@/components/Ersparnisrechner";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -22,9 +23,15 @@ const faqs = [
 const Mobilitaetsmanagement = () => {
   const [form, setForm] = useState({ name: "", email: "", type: "Privatperson", message: "" });
 
+  const { hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (!hash) { window.scrollTo(0, 0); return; }
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(hash.slice(1));
+      if (el) { el.style.scrollMarginTop = "6rem"; el.scrollIntoView({ behavior: "smooth" }); }
+    }, 100);
+    return () => window.clearTimeout(t);
+  }, [hash]);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,6 +57,7 @@ const Mobilitaetsmanagement = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" onClick={() => scrollTo("top-angebote")}>Zu den Top-Angeboten</Button>
+              <Button variant="secondary" size="lg" onClick={() => scrollTo("rechner")}>⚡ 0,25-%-Ersparnisrechner starten</Button>
               <Button variant="outline" size="lg" onClick={() => scrollTo("anfrage")}>Beratung anfragen</Button>
             </div>
           </div>
@@ -84,7 +92,7 @@ const Mobilitaetsmanagement = () => {
           </div>
         </section>
 
-        <Ersparnisrechner />
+        <Ersparnisrechner id="rechner" />
 
         <TopAngebote />
 

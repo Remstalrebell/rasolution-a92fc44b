@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Calculator, Menu, X } from "lucide-react";
 import logoUrl from "@/assets/rasolution-logo.png";
 
-const navLinks = [
-  { label: "Über uns", href: "#about" },
+const navLinks: { label: string; href: string; highlight?: boolean }[] = [
   { label: "Leistungen", href: "#services" },
-  { label: "Marketing", href: "/marketing" },
-  { label: "Warum wir", href: "#why" },
   { label: "Mobilität", href: "/mobilitaetsmanagement" },
+  { label: "0,25-%-Rechner", href: "/mobilitaetsmanagement#rechner", highlight: true },
+  { label: "Marketing", href: "/marketing" },
   { label: "Ratgeber", href: "/ratgeber" },
+  { label: "Über uns", href: "#about" },
+  { label: "Warum wir", href: "#why" },
   { label: "Kontakt", href: "#contact" },
 ];
 
@@ -27,7 +28,14 @@ const Header = () => {
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
-    if (href.startsWith("/")) { navigate(href); return; }
+    if (href.startsWith("/")) {
+      const [path, hash] = href.split("#");
+      if (hash && window.location.pathname === path) {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      }
+      navigate(href);
+      return;
+    }
     if (window.location.pathname !== "/") { navigate("/" + href); return; }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -46,13 +54,16 @@ const Header = () => {
         </a>
 
         {/* Desktop */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
           {navLinks.map((l) => (
             <button
               key={l.href}
               onClick={() => handleNav(l.href)}
-              className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200"
+              className={l.highlight
+                ? "inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-semibold text-primary hover:bg-primary/15 transition-colors duration-200"
+                : "text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200"}
             >
+              {l.highlight && <Calculator size={14} />}
               {l.label}
             </button>
           ))}
@@ -79,8 +90,9 @@ const Header = () => {
               <button
                 key={l.href}
                 onClick={() => handleNav(l.href)}
-                className="text-left text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={`inline-flex items-center gap-2 text-left text-base transition-colors ${l.highlight ? "font-semibold text-primary" : "font-medium text-muted-foreground hover:text-foreground"}`}
               >
+                {l.highlight && <Calculator size={16} />}
                 {l.label}
               </button>
             ))}
