@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Clock } from "lucide-react";
 import { articles } from "@/data/ratgeber";
@@ -25,6 +26,12 @@ const Ratgeber = () => {
           </div>
         </section>
         <section className="py-20">
+          <div className="container max-w-5xl mb-10">
+            <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center sm:flex-row sm:text-left">
+              <p className="font-medium">Wie viel spart ein Dienstrad wirklich? Rechnen Sie es in einer Minute aus.</p>
+              <Button asChild variant="hero" size="lg"><Link to="/mobilitaetsmanagement#rechner">⚡ 0,25-%-Ersparnisrechner starten</Link></Button>
+            </div>
+          </div>
           <div className="container max-w-5xl grid gap-6 md:grid-cols-2">
             {articles.map((a) => (
               <Card key={a.slug} className="flex flex-col">
