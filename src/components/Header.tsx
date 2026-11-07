@@ -54,27 +54,27 @@ const Header = () => {
         </a>
 
         {/* Desktop */}
-        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-5">
           {navLinks.map((l) => (
             <button
               key={l.href}
               onClick={() => handleNav(l.href)}
               className={l.highlight
-                ? "inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-semibold text-primary hover:bg-primary/15 transition-colors duration-200"
-                : "text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200"}
+                ? "inline-flex items-center gap-1 whitespace-nowrap text-sm font-bold text-primary hover:opacity-80 transition-opacity duration-200"
+                : "whitespace-nowrap text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200"}
             >
               {l.highlight && <Calculator size={14} />}
               {l.label}
             </button>
           ))}
-          <Button variant="hero" size="lg" onClick={() => handleNav("#contact")}>
+          <Button variant="hero" size="lg" className="whitespace-nowrap" onClick={() => handleNav("#contact")}>
             Erstgespräch vereinbaren
           </Button>
         </nav>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="lg:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü"
         >
@@ -84,7 +84,7 @@ const Header = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-card border-b border-border">
+        <div className="lg:hidden bg-card border-b border-border">
           <nav className="container flex flex-col gap-4 py-6">
             {navLinks.map((l) => (
               <button
