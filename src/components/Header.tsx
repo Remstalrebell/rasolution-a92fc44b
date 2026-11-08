@@ -67,10 +67,10 @@ const Header = () => {
               {l.label}
             </button>
           ))}
-          <Button variant="hero" size="lg" className="shrink-0 whitespace-nowrap" onClick={() => handleNav("#contact")}>
-            Erstgespräch vereinbaren
-          </Button>
         </nav>
+        <Button variant="hero" size="lg" className="hidden min-[1600px]:inline-flex shrink-0 whitespace-nowrap" onClick={() => handleNav("#contact")}>
+          Erstgespräch vereinbaren
+        </Button>
 
         {/* Mobile toggle */}
         <button
