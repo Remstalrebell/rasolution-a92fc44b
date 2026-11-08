@@ -15,7 +15,7 @@ const Ratgeber = () => {
       <Header />
       <main>
         <section className="pt-32 pb-16" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
-          <div className="container max-w-4xl text-center">
+          <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 text-center">
             <Badge variant="secondary" className="mb-6">Ratgeber</Badge>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" style={{ color: "hsl(var(--hero-fg, 0 0% 100%))" }}>
               Fachwissen für Fuhrpark & Mobilität
@@ -26,13 +26,13 @@ const Ratgeber = () => {
           </div>
         </section>
         <section className="py-20">
-          <div className="container max-w-5xl mb-10">
+          <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 mb-10">
             <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center sm:flex-row sm:text-left">
               <p className="font-medium">Wie viel spart ein Dienstrad wirklich? Rechnen Sie es in einer Minute aus.</p>
               <Button asChild variant="hero" size="lg"><Link to="/mobilitaetsmanagement#rechner">⚡ 0,25-%-Ersparnisrechner starten</Link></Button>
             </div>
           </div>
-          <div className="container max-w-5xl grid gap-6 md:grid-cols-2">
+          <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 xl:gap-8">
             {articles.map((a) => (
               <Card key={a.slug} className="flex flex-col">
                 <CardContent className="flex flex-1 flex-col gap-4 pt-6">

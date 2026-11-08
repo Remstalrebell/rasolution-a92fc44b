@@ -24,7 +24,7 @@ const RatgeberArtikel = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-28 pb-20">
-        <article className="container max-w-3xl">
+        <article className="w-full max-w-5xl mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 text-base xl:text-lg">
           <Button variant="ghost" asChild className="mb-6 -ml-3">
             <Link to="/ratgeber"><ArrowLeft className="h-4 w-4 mr-2" /> Alle Ratgeber-Artikel</Link>
           </Button>
@@ -36,7 +36,7 @@ const RatgeberArtikel = () => {
             {a.updated && <span>· Stand: {formatDate(a.updated)}</span>}
           </p>
 
-          <div className="space-y-5 text-lg leading-relaxed text-foreground/90">
+          <div className="space-y-5 text-lg xl:text-xl leading-relaxed text-foreground/90">
             {a.intro.map((t, i) => <p key={i}><RichText text={t} /></p>)}
           </div>
 

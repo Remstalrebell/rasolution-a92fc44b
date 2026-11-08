@@ -47,7 +47,7 @@ const Mobilitaetsmanagement = () => {
       <main>
         {/* Hero */}
         <section className="pt-32 pb-20" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
-          <div className="container max-w-4xl text-center">
+          <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 text-center">
             <Badge variant="secondary" className="mb-6">Mobilitätsmanagement</Badge>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" style={{ color: "hsl(var(--hero-fg, 0 0% 100%))" }}>
               Nachhaltiges Mobilitätsmanagement & Refurbished E-Bikes
@@ -66,7 +66,7 @@ const Mobilitaetsmanagement = () => {
 
         {/* Ratgeber */}
         <section className="py-20">
-          <div className="container max-w-3xl mx-auto space-y-16">
+          <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 space-y-16 text-base xl:text-lg">
             <div className="text-center">
               <h2 className="text-3xl font-bold mb-4">Ratgeber: Mobilität neu gedacht</h2>
               <p className="text-foreground/80">Fundiertes Wissen für Unternehmen, Fuhrparkverantwortliche und private Radfahrer.</p>
@@ -98,7 +98,7 @@ const Mobilitaetsmanagement = () => {
 
         {/* FAQ */}
         <section className="py-20">
-          <div className="container max-w-3xl">
+          <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24">
             <h2 className="text-3xl font-bold mb-8 text-center">Häufige Fragen</h2>
             <Accordion type="single" collapsible>
               {faqs.map((f, i) => (

@@ -66,7 +66,7 @@ const TopAngebote = () => {
 
   return (
     <section id="top-angebote" className="py-20 bg-muted/40">
-      <div className="container">
+      <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24">
         <div className="text-center mb-10 max-w-4xl mx-auto">
           <h2 className="[text-wrap:balance]">Aktuelle Top-Angebote:<br className="hidden sm:block" /> Geprüfte Leasingrückläufer & Refurbished E&#8209;Bikes</h2>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">8 ausgewählte Fahrzeuge aus unserem Bestand – alle Preise inkl. MwSt.</p>
@@ -80,7 +80,7 @@ const TopAngebote = () => {
           ))}
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6 xl:gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {shown.map((o) => (
             <Card key={o.ref} className="flex flex-col overflow-hidden">
               <button type="button" onClick={() => setZoom(o)} className="group relative aspect-[4/3] bg-white p-4 border-b border-border" aria-label={`Bild vergrößern: ${o.brand} ${o.model}`}>

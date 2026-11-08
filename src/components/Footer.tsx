@@ -6,7 +6,7 @@ const Footer = () => (
     <div className="container flex flex-col gap-5 text-sm" style={{ color: "hsl(var(--hero-muted))" }}>
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <p>© {new Date().getFullYear()} Rasolution</p>
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
           <Link to="/mobilitaetsmanagement" className="hover:text-foreground transition-colors">Mobilität</Link>
           <Link to="/ratgeber" className="hover:text-foreground transition-colors">Ratgeber</Link>
           <Link to="/impressum" className="hover:text-foreground transition-colors">Impressum</Link>

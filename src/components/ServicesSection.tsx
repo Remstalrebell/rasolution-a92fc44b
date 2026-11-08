@@ -59,7 +59,7 @@ const ServicesSection = () => {
         </div>
 
         {/* BEV-Versprechen */}
-        <div className="mt-20 max-w-3xl mx-auto bg-card rounded-xl p-10 shadow-sm border border-amber-200/50 animate-reveal delay-300">
+        <div className="mt-20 max-w-5xl mx-auto bg-card rounded-xl p-10 shadow-sm border border-amber-200/50 animate-reveal delay-300">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
               <Leaf className="text-green-600" size={20} />
