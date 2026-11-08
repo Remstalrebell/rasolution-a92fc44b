@@ -54,7 +54,7 @@ const Header = () => {
         </a>
 
         {/* Desktop */}
-        <nav className="hidden min-[1400px]:flex flex-1 items-center justify-center min-w-0 gap-4 lg:gap-6 xl:gap-8 2xl:gap-12">
+        <nav className="hidden min-[1600px]:flex flex-1 items-center justify-center min-w-0 gap-4 lg:gap-6 xl:gap-8 2xl:gap-12">
           {navLinks.map((l) => (
             <button
               key={l.href}
@@ -74,7 +74,7 @@ const Header = () => {
 
         {/* Mobile toggle */}
         <button
-          className="min-[1400px]:hidden p-2 text-foreground"
+          className="min-[1600px]:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü"
         >
@@ -84,7 +84,7 @@ const Header = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="min-[1400px]:hidden bg-card border-b border-border">
+        <div className="min-[1600px]:hidden bg-card border-b border-border">
           <nav className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 flex flex-col gap-4 py-6">
             {navLinks.map((l) => (
               <button
