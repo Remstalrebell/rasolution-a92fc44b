@@ -48,33 +48,33 @@ const Header = () => {
           : "bg-white/60 backdrop-blur-sm"
       }`}
     >
-      <div className="container flex items-center justify-between h-16 md:h-[4.5rem]">
-        <a href="/" className="flex items-center" aria-label="Rasolution">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 flex items-center justify-between gap-4 h-16 md:h-[4.5rem]">
+        <a href="/" className="flex shrink-0 items-center" aria-label="Rasolution">
           <img src={logoUrl} alt="Rasolution – Fleetmanagement, E-Mobility, Digital, Security" className="h-10 max-h-10 w-auto object-contain bg-transparent" loading="eager" decoding="async" />
         </a>
 
         {/* Desktop */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-5">
+        <nav className="hidden min-[1400px]:flex flex-1 items-center justify-center min-w-0 gap-4 lg:gap-6 xl:gap-8 2xl:gap-12">
           {navLinks.map((l) => (
             <button
               key={l.href}
               onClick={() => handleNav(l.href)}
               className={l.highlight
-                ? "inline-flex items-center gap-1 whitespace-nowrap text-sm font-bold text-primary hover:opacity-80 transition-opacity duration-200"
-                : "whitespace-nowrap text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200"}
+                ? "inline-flex items-center gap-1 whitespace-nowrap text-sm xl:text-base font-bold text-primary hover:opacity-80 transition-opacity duration-200"
+                : "whitespace-nowrap text-sm xl:text-base font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200"}
             >
               {l.highlight && <Calculator size={14} />}
               {l.label}
             </button>
           ))}
-          <Button variant="hero" size="lg" className="whitespace-nowrap" onClick={() => handleNav("#contact")}>
+          <Button variant="hero" size="lg" className="shrink-0 whitespace-nowrap" onClick={() => handleNav("#contact")}>
             Erstgespräch vereinbaren
           </Button>
         </nav>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 text-foreground"
+          className="min-[1400px]:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü"
         >
@@ -84,8 +84,8 @@ const Header = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-card border-b border-border">
-          <nav className="container flex flex-col gap-4 py-6">
+        <div className="min-[1400px]:hidden bg-card border-b border-border">
+          <nav className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 flex flex-col gap-4 py-6">
             {navLinks.map((l) => (
               <button
                 key={l.href}

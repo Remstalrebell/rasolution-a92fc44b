@@ -13,7 +13,7 @@ const AboutSection = () => {
       />
       <div className="absolute inset-0 bg-background/80" />
       <div className="container relative z-10" ref={ref}>
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <div className="w-full max-w-[1760px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
           <div className="shrink-0 animate-reveal">
             <div className="h-40 w-40 rounded-full border-2 border-primary/30 shadow-lg bg-muted/50 flex items-center justify-center">
               <RasolutionLogo className="h-16 w-16 text-primary/60" />

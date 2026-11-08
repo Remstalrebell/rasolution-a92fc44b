@@ -23,7 +23,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 md:py-32 bg-background">
       <div className="container" ref={ref}>
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full max-w-[1760px] mx-auto">
           <h2 className="text-center text-3xl md:text-4xl font-bold text-primary animate-reveal">
             Rasolution
           </h2>

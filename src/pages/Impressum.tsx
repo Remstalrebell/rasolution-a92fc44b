@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Impressum = () => (
   <div className="min-h-screen bg-white">
-    <div className="container max-w-3xl py-16 px-6">
+    <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24 py-16 text-base xl:text-lg">
       <Button variant="ghost" asChild className="mb-8 text-gray-700">
         <Link to="/"><ArrowLeft className="h-4 w-4 mr-2" /> Zurück zur Startseite</Link>
       </Button>

@@ -70,7 +70,7 @@ const Ersparnisrechner = ({ id = "ersparnisrechner", compact = false }: { id?: s
 
   return (
     <section id={id} className={compact ? "my-12" : "py-20 bg-muted/40"} aria-labelledby={`${id}-title`}>
-      <div className={compact ? "" : "container max-w-5xl"}>
+      <div className={compact ? "" : "w-full max-w-[1760px] mx-auto px-4 sm:px-8 xl:px-16 2xl:px-24"}>
         <div className={compact ? "mb-6" : "text-center mb-10"}>
           <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">Interaktives Tool</p>
           <h2 id={`${id}-title`} className="text-2xl md:text-3xl font-bold">Dienstrad- &amp; Refurbished-Ersparnisrechner (0,25-%-Regel)</h2>
