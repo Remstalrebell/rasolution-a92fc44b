@@ -3,3 +3,5 @@
 - Ratgeber articles are data in `src/data/ratgeber.ts` rendered by one template page; FAQ answers stay always visible so crawlers see them.
 - The bike stock list is data in `src/data/gesamtkatalog.json` (generated from the user's CSV) with filter/sort/subject logic in `src/lib/katalog.ts`; replace the JSON to update stock, keep logic covered by `src/test/katalog.test.ts`.
 - Hidden affiliate pages (e.g. `/empfehlungen`, data in `src/data/empfehlungen.ts`) stay out of nav, footer and sitemap, are `noindex` via `useRouteMeta`, disallowed in every Google/Bing group of `robots.txt`, and call `useBlockAds` — keeps AdSense review limited to editorial pages.
+- AdSenseLoader alone owns route-based loading and request resumption using the default-deny policy in src/lib/adsense.ts; page-level blockers must not resume requests on unmount, to avoid affiliate-route transition races.
+- Article attribution, dates and topic-specific primary sources belong to the shared article data; the detail template owns and cleans up Article JSON-LD so navigation cannot retain another article's schema. Never invent undocumented publication dates.

@@ -4,7 +4,7 @@ import { getArticle } from "@/data/ratgeber";
 
 const SITE = "https://rasolution.io";
 
-type Meta = { title: string; description: string; noindex?: boolean };
+type Meta = { title: string; description: string; noindex?: boolean; follow?: boolean };
 
 export const routeMeta: Record<string, Meta> = {
   "/": {
@@ -37,6 +37,7 @@ export const routeMeta: Record<string, Meta> = {
     title: "Rasolution Partner-Hub: Empfohlene Tools, Business-Finanzen & Digitale Einkommenssysteme",
     description: "Kuratierte Partner-Empfehlungen von Rasolution: Digitales Business, KI-Tools, Business-Kreditkarten, Starlink und Lifestyle-Deals.",
     noindex: true,
+    follow: true,
   },
 };
 
@@ -78,7 +79,7 @@ export const useRouteMeta = () => {
     setMeta("property", "og:url", url);
     setMeta("name", "twitter:title", m.title);
     setMeta("name", "twitter:description", m.description);
-    setMeta("name", "robots", m.noindex ? "noindex, nofollow" : "index, follow");
+    setMeta("name", "robots", m.noindex ? (m.follow ? "noindex, follow" : "noindex, nofollow") : "index, follow");
 
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!link) {

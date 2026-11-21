@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, Lightbulb, ListOrdered, PenLine } from "lucide-react";
 import { articles, getArticle, slugifyHeading } from "@/data/ratgeber";
 import NotFound from "./NotFound";
+import { getArticleSchema } from "@/lib/articleSchema";
 
 const formatDate = (iso: string) =>
   new Date(iso + "T12:00:00Z").toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
@@ -16,6 +17,15 @@ const RatgeberArtikel = () => {
   const { slug = "" } = useParams();
   const a = getArticle(slug);
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+  useEffect(() => {
+    if (!a) return;
+    const script = document.createElement("script");
+    script.id = "ratgeber-article-schema";
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(getArticleSchema(a)).replace(/</g, "\\u003c");
+    document.head.appendChild(script);
+    return () => { script.remove(); };
+  }, [a]);
   if (!a) return <NotFound />;
   const related = (a.related ?? []).map(getArticle).filter((o): o is NonNullable<typeof o> => !!o && o.slug !== a.slug);
   const others = articles.filter((o) => o.slug !== a.slug && !related.some((r) => r.slug === o.slug));
@@ -32,8 +42,9 @@ const RatgeberArtikel = () => {
           <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">{a.title}</h1>
           <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground mb-10">
             <span className="inline-flex items-center gap-1"><Clock size={14} /> {a.readMin} Min. Lesezeit</span>
-            <span>· Rasolution Redaktion</span>
-            {a.updated && <span>· Stand: {formatDate(a.updated)}</span>}
+            <span>Von {a.author.name} – {a.author.role}</span>
+            <span>Veröffentlicht: {a.published ? <time dateTime={a.published}>{formatDate(a.published)}</time> : "Datum nicht dokumentiert"}</span>
+            <span>Zuletzt aktualisiert: <time dateTime={a.updated}>{formatDate(a.updated)}</time></span>
           </p>
 
           <div className="space-y-5 text-lg xl:text-xl leading-relaxed text-foreground/90">
@@ -111,14 +122,26 @@ const RatgeberArtikel = () => {
           <aside aria-label="Über die Autoren" className="mt-14 flex gap-4 rounded-2xl border bg-card p-6">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"><PenLine size={22} /></div>
             <div>
-              <p className="font-semibold">Rasolution Redaktion</p>
+              <p className="font-semibold">{a.author.name} – {a.author.role}</p>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                Die Fachredaktion von Rasolution schreibt über Fuhrparkmanagement, E-Mobilität und betriebliches Mobilitätsmanagement –
-                auf Basis unserer Beratungspraxis mit Unternehmen aus dem Mittelstand. Alle Artikel werden regelmäßig auf den aktuellen
-                Rechtsstand geprüft; sie ersetzen keine individuelle Rechts- oder Steuerberatung.
+                {a.author.profile}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Praxisbezug: Bei Fuhrparkentscheidungen betrachten wir Gesamtkosten, Auslastung, betriebliche Abläufe und die jeweiligen Vertragsbedingungen gemeinsam.
+                Diese Artikel bieten allgemeine Orientierung und ersetzen keine individuelle Rechts- oder Steuerberatung.
               </p>
             </div>
           </aside>
+
+          <section aria-labelledby="originalquellen" className="mt-10">
+            <h2 id="originalquellen" className="text-xl font-semibold">Rechtliche Grundlagen &amp; weiterführende Originalquellen</h2>
+            <ul className="mt-4 list-disc pl-6 space-y-3 text-sm leading-relaxed">
+              {a.sources.map((source) => (
+                <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-words">{source.title}</a></li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm text-muted-foreground">Maßgeblich sind die jeweils geltende Fassung und der konkrete Anwendungsfall; Vorschriften für Kraftfahrzeuge gelten nicht automatisch für jedes Dienstrad.</p>
+          </section>
 
           <div className="mt-10 rounded-2xl border bg-card p-8 text-center">
             <h2 className="text-xl font-semibold">Fragen zu Ihrem Fuhrpark?</h2>

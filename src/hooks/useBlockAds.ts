@@ -4,7 +4,7 @@ type AdsQueue = unknown[] & { pauseAdRequests?: number };
 
 /**
  * Suppresses Google AdSense on the current page: pauses new ad requests and
- * hides any ad units/auto-ads already injected. Restores on unmount.
+ * hides any ad units/auto-ads already injected. AdSenseLoader owns resuming.
  */
 export const useBlockAds = () => {
   useEffect(() => {
@@ -20,7 +20,6 @@ export const useBlockAds = () => {
     document.head.appendChild(style);
 
     return () => {
-      queue.pauseAdRequests = 0;
       style.remove();
     };
   }, []);

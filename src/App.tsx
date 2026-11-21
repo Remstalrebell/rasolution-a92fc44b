@@ -26,6 +26,7 @@ import Empfehlungen from "./pages/Empfehlungen.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
 import { useGAPageView } from "./hooks/useGAPageView";
 import { useRouteMeta } from "./hooks/useRouteMeta";
+import AdSenseLoader from "./components/AdSenseLoader";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +58,7 @@ const MaintenanceGate = ({ children }: { children: React.ReactNode }) => {
 export const AppRoutes = () => (
   <>
     <GAPageViewTracker />
+    <AdSenseLoader />
     <CookieConsent />
     <MaintenanceGate>
       <Routes>

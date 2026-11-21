@@ -20,6 +20,8 @@ export type Article = {
   teaser: string;
   category: string;
   readMin: number;
+  /** Actual first publication date, omitted until confirmed by the publisher. */
+  published?: string;
   /** ISO date (YYYY-MM-DD) of the last editorial update */
   updated?: string;
   intro: string[];
@@ -917,10 +919,87 @@ const newArticles: Article[] = [
   },
 ];
 
-export const articles: Article[] = [
+export const articleAuthor = {
+  name: "Ralf Jörg Schmidt",
+  role: "Fuhrpark- & B2B-Mobilitätsberater bei RASOLUTION",
+  profile: "Ralf Jörg Schmidt berät mittelständische Unternehmen in Süddeutschland zur Senkung der Fuhrpark-TCO, Dienstrad-Steuerrecht und Refurbished-Flottenlösungen.",
+};
+
+export type ArticleSource = { title: string; url: string };
+
+const publicationDates: Record<string, string> = {
+  "dienstwagen-vs-dienstrad-steuervorteile": "2026-10-26",
+  "refurbished-ebikes-b2b-fuhrpark": "2026-10-28",
+  "fuhrparkmanagement-kosten-senken-tco": "2026-10-30",
+  "ebike-akku-lebensdauer-pflege-flotte": "2026-11-01",
+  "fuhrpark-tco-senken-massnahmenplan": "2026-11-02",
+  "csrd-scope-3-fuhrpark": "2026-11-03",
+  "ladeinfrastruktur-im-unternehmen": "2026-11-04",
+  "uvv-pruefung-dienstraeder-pkw": "2026-11-05",
+  "poolfahrzeuge-effizient-verwalten": "2026-11-06",
+  "leasingruecklaeufer-kaufen-vs-neu-leasing": "2026-11-06",
+};
+
+const taxSources: ArticleSource[] = [
+  { title: "§ 3 Nr. 37 EStG – Steuerfreie Überlassung betrieblicher Fahrräder", url: "https://www.gesetze-im-internet.de/estg/__3.html" },
+  { title: "§ 6 Abs. 1 Nr. 4 EStG – Bewertung der privaten Fahrzeugnutzung", url: "https://www.gesetze-im-internet.de/estg/__6.html" },
+  { title: "Lohnsteuer-Hinweise 2026, Anhang 24 IV.4: Überlassung von Fahrrädern (gleich lautende Ländererlasse vom 9. Januar 2020)", url: "https://lsth.bundesfinanzministerium.de/lsth/2026/B-Anhaenge/Anhang-24/IV/IV-4/inhalt.html" },
+];
+const warrantySources: ArticleSource[] = [
+  { title: "§ 437 BGB – Rechte des Käufers bei Mängeln", url: "https://www.gesetze-im-internet.de/bgb/__437.html" },
+  { title: "§ 476 BGB – Abweichende Vereinbarungen beim Verbrauchsgüterkauf", url: "https://www.gesetze-im-internet.de/bgb/__476.html" },
+];
+const climateSources: ArticleSource[] = [
+  { title: "Umweltbundesamt – Emissionsdaten des Verkehrs", url: "https://www.umweltbundesamt.de/themen/verkehr/emissionsdaten" },
+  { title: "GHG Protocol – Corporate Value Chain (Scope 3) Standard", url: "https://ghgprotocol.org/corporate-value-chain-scope-3-standard" },
+];
+const safetySources: ArticleSource[] = [
+  { title: "DGUV Vorschrift 70 – Fahrzeuge (Anwendungsbereich und § 57 Prüfung)", url: "https://publikationen.dguv.de/regelwerk/dguv-vorschriften/1125/fahrzeuge" },
+  { title: "DGUV Vorschrift 1 – Grundsätze der Prävention", url: "https://www.dguv.de/de/praevention/vorschriften_regeln/dguv-vorschrift_1/index.jsp" },
+  { title: "§ 3 BetrSichV – Gefährdungsbeurteilung für Arbeitsmittel", url: "https://www.gesetze-im-internet.de/betrsichv_2015/__3.html" },
+];
+const sourcesBySlug: Record<string, ArticleSource[]> = {
+  "dienstwagen-vs-dienstrad-steuervorteile": taxSources,
+  "refurbished-ebikes-b2b-fuhrpark": [...warrantySources, ...climateSources],
+  "fuhrparkmanagement-kosten-senken-tco": [taxSources[1], ...climateSources],
+  "ebike-akku-lebensdauer-pflege-flotte": [
+    { title: "EU-Verordnung 2023/1542 – Batterien und Altbatterien", url: "https://eur-lex.europa.eu/eli/reg/2023/1542/oj?locale=de" },
+    ...warrantySources,
+  ],
+  "fuhrpark-tco-senken-massnahmenplan": [taxSources[1], ...climateSources],
+  "csrd-scope-3-fuhrpark": [
+    { title: "EU-Richtlinie 2022/2464 – Nachhaltigkeitsberichterstattung (CSRD)", url: "https://eur-lex.europa.eu/eli/dir/2022/2464/oj?locale=de" },
+    { title: "EU-Richtlinie 2025/794 – Verschiebung bestimmter CSRD-Anwendungsfristen", url: "https://eur-lex.europa.eu/eli/dir/2025/794/oj?locale=de" },
+    { title: "EU-Verordnung 2023/2772 – European Sustainability Reporting Standards (ESRS)", url: "https://eur-lex.europa.eu/eli/reg_del/2023/2772/oj?locale=de" },
+    climateSources[1],
+  ],
+  "ladeinfrastruktur-im-unternehmen": [
+    { title: "Gebäude-Elektromobilitätsinfrastruktur-Gesetz (GEIG)", url: "https://www.gesetze-im-internet.de/geig/" },
+    { title: "§ 3 Nr. 46 EStG – Steuerbefreiung für betriebliches Laden", url: "https://www.gesetze-im-internet.de/estg/__3.html" },
+    { title: "EU-Verordnung 2023/1804 – Infrastruktur für alternative Kraftstoffe (AFIR)", url: "https://eur-lex.europa.eu/eli/reg/2023/1804/oj?locale=de" },
+  ],
+  "uvv-pruefung-dienstraeder-pkw": safetySources,
+  "poolfahrzeuge-effizient-verwalten": [
+    ...safetySources,
+    { title: "§ 21 StVG – Fahren ohne Fahrerlaubnis und Halterverantwortung", url: "https://www.gesetze-im-internet.de/stvg/__21.html" },
+    { title: "Art. 5 DSGVO – Grundsätze der Verarbeitung personenbezogener Daten", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=de" },
+  ],
+  "leasingruecklaeufer-kaufen-vs-neu-leasing": [...warrantySources, taxSources[1]],
+};
+
+export const articles = [
   { ...baseArticles[0], tool: "ersparnisrechner" },
   ...baseArticles.slice(1),
   ...newArticles,
-];
+].map((article) => ({
+  ...article,
+  published: publicationDates[article.slug],
+  updated: "2026-11-21",
+  author: articleAuthor,
+  publisher: "RASOLUTION",
+  sources: sourcesBySlug[article.slug] ?? [],
+}));
+
+export type AttributedArticle = (typeof articles)[number];
 
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
