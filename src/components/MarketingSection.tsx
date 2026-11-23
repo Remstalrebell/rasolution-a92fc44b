@@ -36,9 +36,9 @@ const MarketingSection = () => {
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
             Onlinemarketing & YTA
           </p>
-          <h2 className="text-foreground text-balance">
+          <h1 className="text-foreground text-balance text-3xl md:text-4xl font-bold">
             Digitale Sichtbarkeit für Ihr Unternehmen
-          </h2>
+          </h1>
           <p className="mt-4 text-muted-foreground text-lg delay-100 animate-reveal" style={{ textWrap: "pretty" }}>
             Neben Fuhrparkmanagement unterstütze ich Unternehmen dabei, ihre digitale Präsenz strategisch auszubauen – von der Website über SEO bis hin zu YouTube-Strategien.
           </p>
